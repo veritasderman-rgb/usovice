@@ -64,43 +64,49 @@ const DEFAULT_ARTICLES = [
     },
     {
         id: 6,
-        title: "Zimní olympiáda — projekt 5. tříd",
+        title: "Člověče nezlob se ve školní družině",
         date: "2026-02-10",
-        category: "projekt",
-        icon: "fas fa-skiing",
+        category: "druzina",
+        icon: "fas fa-dice",
         color: "#a18cd1",
-        summary: "Páťáci vytvořili třídní olympijské hry s modifikovaným hokejem, biatlonem a krasobruslařskou soutěží včetně medailových ceremoniálů.",
-        content: "Žáci pátých tříd připravili projektový den inspirovaný zimními olympijskými hrami. Ve třídách proběhly modifikované verze hokeje, biatlonu a krasobruslení. Vítězové byli oceněni na slavnostních medailových ceremoniálech."
+        summary: "Děti ve školní družině si to rozdaly v legendárním Člověče nezlob se — posílily sebeovládání, kamarádství i spolupráci.",
+        content: "Pro zpestření pobytu ve školní družině si to děti mezi sebou rozdaly v legendárním Člověče nezlob se! Nejen, že si to užily, ale také zároveň posílily své sebeovládání, kamarádství, spolupráci a jiné kladné vlastnosti.\n\n„Atmosféra houstla každou vyhozenou figurkou, ale správně hozená šestka vše zachránila" 😀",
+        author: "Kločurková M.",
+        hasGallery: true
     },
     {
         id: 7,
-        title: "„AJ nás baví" — soutěž v angličtině",
+        title: "Olympijské hry nejen v Itálii",
         date: "2026-02-05",
-        category: "soutez",
-        icon: "fas fa-language",
+        category: "projekt",
+        icon: "fas fa-medal",
         color: "#f093fb",
-        summary: "Soutěž pro žáky 4. a 5. tříd zahrnovala písemné testy, ústní prezentace a čtení s porozuměním.",
-        content: "Tradiční školní soutěž v anglickém jazyce „AJ nás baví" se konala pro žáky 4. a 5. tříd. Soutěžilo se ve třech kategoriích: písemný test, ústní prezentace a čtení s porozuměním. Nejlepší žáci postupují do regionálního kola."
+        summary: "Páťáci si uspořádali vlastní Zimní olympiádu 2026 — hokej, biatlon i krasobruslení v mouce, s medailemi a fair play.",
+        content: "S páťáky jsme letos nechtěli být jen diváky, kteří fandí našim olympionikům. Proto jsme se rozhodli, že si uspořádáme vlastní olympijské hry. A tak jsme slavnostně zahájili Zimní olympiádu 2026.\n\nV rámci vyučování jsme postupně uspořádali několik sportovních klání. Samozřejmě jsme museli jednotlivé disciplíny přizpůsobit prostředí třídy, ale o zábavu rozhodně nebyla nouze. Vyzkoušeli jsme si například hokej, biatlon nebo krasobruslení. I když jen v mouce. O to víc mohli sportovci ukázat nejen svoji šikovnost, ale i smysl pro humor. Nechyběla týmová spolupráce, fair play ani pořádná dávka nadšení. Každý závodník podal skvělý výkon a všichni si zaslouží obdiv za sportovní nasazení.\n\nPřed jarními prázdninami proběhlo vyhlášení výsledků a sportovci si za své výkony odnesli zasloužené medaile. Pak jsme naši třídní olympiádu slavnostně zakončili. Naše olympijské hry nám ukázaly, že i ve třídě se dají zažít velké olympijské chvíle.",
+        author: "Zdeňka Matějková, Jitka Sidorjáková",
+        hasGallery: true
     },
     {
         id: 8,
-        title: "Beseda s myslivcem",
+        title: "AJ nás baví — školní soutěž v angličtině",
         date: "2026-01-28",
-        category: "vzdelavani",
-        icon: "fas fa-paw",
+        category: "soutez",
+        icon: "fas fa-language",
         color: "#38f9d7",
-        summary: "Přednáška o lesní zvěři a jarní době rozmnožování s ukázkami loveckého psa a preparované zvěře.",
-        content: "V rámci výuky přírodovědy navštívil naši školu myslivec s loveckým psem. Žáci se dozvěděli o životě lesní zvěře, jarní době rozmnožování a měli možnost vidět preparáty různých živočichů."
+        summary: "Žáci 4. a 5. tříd soutěžili v angličtině — písemný test, ústní prezentace i čtení. Vítězové Sebastián Gemov a Marek Mihok postupují do okresního kola.",
+        content: "Ve čtvrtek na naší škole proběhla soutěž v anglickém jazyce s názvem „AJ nás baví", které se zúčastnili žáci čtvrtých a pátých tříd.\n\nSoutěžící nejprve absolvovali písemný test, ve kterém prokázali své znalosti slovní zásoby, gramatiky i porozumění textu. Poté následovala ústní část. Každý žák se představil v anglickém jazyce, následně si vylosoval téma, o kterém samostatně hovořil. Další částí bylo čtení anglického textu s otázkami, které ověřily porozumění.\n\nVšichni soutěžící podali velmi pěkné výkony a bylo vidět, že se na soutěž pečlivě připravovali. Proto si za svou snahu odnesli diplom a malou odměnu. Ti nejlepší žáci, Sebastián Gemov ze 4.B a Marek Mihok z 5.A, kteří se umístili na 1. místě, postupují do okresního kola v Chebu.\n\nDěkujeme všem soutěžícím. Postupujícím budeme držet palce v okresním kole a přejeme jim hodně úspěchů.",
+        author: "Zdeňka Matějková, Nikola Salvová"
     },
     {
         id: 9,
-        title: "Sférické kino — 360° projekce",
-        date: "2026-01-20",
-        category: "projekt",
-        icon: "fas fa-globe",
-        color: "#667eea",
-        summary: "Pět tříd zažilo imerzivní projekci mikroorganismů a systémů lidského těla díky projektu OP JAK Šablony II.",
-        content: "Díky projektu OP JAK Šablony II si žáci pěti tříd mohli vyzkoušet imerzivní sférické kino s 360° projekcí. Program byl zaměřen na mikroorganismy a soustavy lidského těla, což přineslo zcela nový rozměr výuky přírodních věd."
+        title: "Beseda s myslivcem",
+        date: "2026-02-19",
+        category: "vzdelavani",
+        icon: "fas fa-paw",
+        color: "#38f9d7",
+        summary: "Pan Faměra přijel s loveckým pejskem Aslanem a vycpanými zvířaty — děti se dozvěděly o myslivosti, lesní zvěři i jarních mláďatech.",
+        content: "Na podzim jsme ve školní družině sbírali kaštany a žaludy, které jsme pak dali panu Faměrovi pro zvířata. Pan Faměra byl moc rád a jako odměnu si pro nás připravil besedu.\n\nVe čtvrtek 19. února přijel i s loveckým pejskem — Aslanem a přivezl spoustu vycpaných zvířat: muflona, siku, různé parohy a rohy... Nejprve řekl dětem, co je to myslivost, dále, že na jaře se rodí mláďata. Kdo u nás v lese žije: jelen, divoké prase, zajíc, srnka, ježek, veverka, daněk, muflon... Co zvířata jí. Kde bydlí jezevec atd.",
+        hasGallery: true
     },
     {
         id: 10,
