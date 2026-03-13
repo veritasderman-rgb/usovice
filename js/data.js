@@ -5,13 +5,15 @@
 const DEFAULT_ARTICLES = [
     {
         id: 1,
-        title: "Profesní orientace s VR technologií",
+        title: "Profesní orientace s virtuální realitou",
         date: "2026-03-10",
         category: "akce",
         icon: "fas fa-vr-cardboard",
         color: "#667eea",
-        summary: "Žáci 8. ročníku se zúčastnili workshopu „VR PROFILAB" s osobnostními testy a 360° interaktivními videi představujícími 20 regionálních profesí — zdravotnictví, programování, svařování, strojírenství i řemesla.",
-        content: "Žáci osmých tříd se zúčastnili profesně-orientačního workshopu VR PROFILAB. Program zahrnoval osobnostní diagnostiku a interaktivní 360° videa představující 20 různých profesí z regionu. Žáci měli možnost nahlédnout do světa zdravotnictví, programování, svařování, strojírenství a tradičních řemesel pomocí VR technologie."
+        summary: "Žáci 8. ročníků se zúčastnili workshopu VR PROFILAB — osobnostní testy a 360° interaktivní videa představující 20 nejperspektivnějších profesí Karlovarského kraje.",
+        content: "Žáci 8. ročníků mají ještě celý školní rok čas na volbu své studijní cesty po ukončení ZŠ. K tomu, aby se pomalu začali nad svým zaměřením zamýšlet, jim jistě pomohla akce VR PROFILAB, která se uskutečnila začátkem března.\n\nTento projekt je realizován Krajským inovačním centrem Karlovarského kraje.\n\nV první části dvouhodinového workshopu si žáci vyplnili krátký profilový test, který jim ukázal jejich osobnostní zaměření. V další části zhlédli interaktivní 360° videa reprezentující 20 nejperspektivnějších profesí v našem kraji. Podle vlastní preference se mohli prostřednictvím virtuální reality vypravit na exkurzi do nemocnice mezi zdravotnický personál, seznámit se s profesemi jako např. programátor CNC, svářeč, průmyslový inženýr, masér, výrobce keramiky, policista a mnoho dalších.\n\nMgr. Jana Sahánková",
+        author: "Mgr. Jana Sahánková",
+        hasGallery: true
     },
     {
         id: 2,
