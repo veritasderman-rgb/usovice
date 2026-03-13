@@ -159,6 +159,107 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderNews();
 
+    // --- Article Detail Modal ---
+    function openArticleModal(articleId) {
+        const articles = getArticles();
+        const article = articles.find(a => a.id == articleId);
+        if (!article) return;
+
+        const modal = document.getElementById('articleModal');
+        const icon = document.getElementById('articleModalIcon');
+        const category = document.getElementById('articleModalCategory');
+        const date = document.getElementById('articleModalDate');
+        const title = document.getElementById('articleModalTitle');
+        const body = document.getElementById('articleModalBody');
+        const footer = document.getElementById('articleModalFooter');
+
+        // Set icon background
+        const bg = `linear-gradient(135deg, ${article.color || '#667eea'}, ${adjustColor(article.color || '#667eea', -30)})`;
+        icon.style.background = bg;
+        icon.innerHTML = `<i class="${article.icon || 'fas fa-newspaper'}"></i>`;
+
+        // Category
+        category.textContent = article.category || 'aktualita';
+
+        // Date
+        date.textContent = new Date(article.date).toLocaleDateString('cs-CZ', {
+            day: 'numeric', month: 'long', year: 'numeric'
+        });
+
+        // Title
+        title.textContent = article.title;
+
+        // Body — convert newlines to paragraphs
+        const contentText = article.content || article.summary;
+        const paragraphs = contentText.split('\n\n').filter(p => p.trim());
+        body.innerHTML = paragraphs.map(p => {
+            // Handle bullet points
+            if (p.trim().startsWith('•') || p.trim().startsWith('- ')) {
+                const items = p.split('\n').filter(l => l.trim());
+                return '<ul>' + items.map(item =>
+                    '<li>' + escapeHtml(item.replace(/^[•\-]\s*/, '')) + '</li>'
+                ).join('') + '</ul>';
+            }
+            // Handle numbered lists
+            const lines = p.split('\n').filter(l => l.trim());
+            if (lines.length > 1) {
+                return lines.map(l => '<p>' + escapeHtml(l) + '</p>').join('');
+            }
+            return '<p>' + escapeHtml(p.trim()) + '</p>';
+        }).join('');
+
+        // Footer tags
+        let footerHtml = '';
+        if (article.author) {
+            footerHtml += `<span class="author-tag"><i class="fas fa-user"></i> ${escapeHtml(article.author)}</span>`;
+        }
+        if (article.hasAttachment) {
+            footerHtml += `<span class="attachment-tag"><i class="fas fa-paperclip"></i> ${escapeHtml(article.attachmentName || 'Příloha')} (${escapeHtml(article.attachmentFormat || 'PDF')})</span>`;
+        }
+        if (article.hasGallery) {
+            footerHtml += `<span class="gallery-tag"><i class="fas fa-images"></i> Fotogalerie</span>`;
+        }
+        footer.innerHTML = footerHtml;
+
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeArticleModal() {
+        const modal = document.getElementById('articleModal');
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close modal on X button
+    const modalCloseBtn = document.getElementById('articleModalClose');
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeArticleModal);
+    }
+
+    // Close modal on overlay click
+    const modalOverlay = document.getElementById('articleModal');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) closeArticleModal();
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeArticleModal();
+    });
+
+    // Make news cards clickable
+    document.getElementById('news-grid').addEventListener('click', function(e) {
+        const card = e.target.closest('.news-card');
+        if (card) {
+            const articleId = card.dataset.id;
+            if (articleId) openArticleModal(articleId);
+        }
+    });
+
     // --- Load CMS Section Content ---
     function loadSectionContent() {
         // Hero
@@ -367,10 +468,15 @@ document.addEventListener('DOMContentLoaded', function() {
             dot.addEventListener('click', () => { goTo(+dot.dataset.index); startAuto(); });
         });
 
-        // Click slide → scroll to news
-        track.addEventListener('click', () => {
-            const newsSection = document.getElementById('news');
-            if (newsSection) newsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Click slide → open article modal
+        track.addEventListener('click', (e) => {
+            const slide = e.target.closest('.carousel-slide');
+            if (slide) {
+                const idx = parseInt(slide.dataset.index);
+                if (!isNaN(idx) && sorted[idx]) {
+                    openArticleModal(sorted[idx].id);
+                }
+            }
         });
 
         startAuto();

@@ -219,36 +219,36 @@
                     <p><strong>IČO:</strong> 70997543 &nbsp;|&nbsp; <strong>Datová schránka:</strong> wkkmpmx</p>
                 </div>
                 <div class="about-features">
-                    <div class="feature-card">
+                    <a href="#projects" class="feature-card feature-card-link">
                         <i class="fas fa-flask"></i>
                         <h4>Odborné učebny</h4>
                         <p>Chemie, fyzika, přírodní vědy s moderním vybavením</p>
-                    </div>
-                    <div class="feature-card">
+                    </a>
+                    <a href="#projects" class="feature-card feature-card-link">
                         <i class="fas fa-laptop-code"></i>
                         <h4>IT vybavení</h4>
                         <p>2 počítačové učebny, notebooky, Chromebooky, tablety</p>
-                    </div>
-                    <div class="feature-card">
+                    </a>
+                    <a href="#gallery" class="feature-card feature-card-link">
                         <i class="fas fa-vr-cardboard"></i>
                         <h4>VR & Robotika</h4>
                         <p>VR headsety a interaktivní Vex roboty pro výuku</p>
-                    </div>
-                    <div class="feature-card">
+                    </a>
+                    <a href="#gallery" class="feature-card feature-card-link">
                         <i class="fas fa-tools"></i>
                         <h4>Dílny</h4>
                         <p>Kompletně renovované školní dílny</p>
-                    </div>
-                    <div class="feature-card">
+                    </a>
+                    <a href="#parlament" class="feature-card feature-card-link">
                         <i class="fas fa-users"></i>
                         <h4>Žákovský parlament</h4>
                         <p>Aktivní studentská samospráva</p>
-                    </div>
-                    <div class="feature-card">
+                    </a>
+                    <a href="#poradenstvi" class="feature-card feature-card-link">
                         <i class="fas fa-hands-helping"></i>
                         <h4>Poradenství</h4>
                         <p>Školní poradenské pracoviště, výchovný poradce</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -599,36 +599,36 @@
                 <p>Důležité dokumenty ke stažení a školní řád</p>
             </div>
             <div class="documents-grid" id="documents-content">
-                <div class="doc-card">
+                <a href="#skolni-rad" class="doc-card doc-card-link">
                     <i class="fas fa-gavel"></i>
                     <h3>Školní řád</h3>
                     <p>Pravidla chování a povinnosti žáků</p>
-                </div>
-                <div class="doc-card">
+                </a>
+                <a href="#ke-stazeni" class="doc-card doc-card-link">
                     <i class="fas fa-chart-bar"></i>
                     <h3>Výroční zprávy</h3>
                     <p>Roční hodnocení činnosti školy</p>
-                </div>
-                <div class="doc-card">
+                </a>
+                <a href="#plans" class="doc-card doc-card-link">
                     <i class="fas fa-calendar-alt"></i>
                     <h3>Měsíční a roční plány</h3>
                     <p>Plánované akce a organizace školního roku</p>
-                </div>
-                <div class="doc-card">
+                </a>
+                <a href="#omlouvani" class="doc-card doc-card-link">
                     <i class="fas fa-clipboard-list"></i>
                     <h3>Omlouvání žáků</h3>
                     <p>Postup při omlouvání nepřítomnosti</p>
-                </div>
-                <div class="doc-card">
+                </a>
+                <a href="https://bakalari.zsusovice.cz" target="_blank" class="doc-card doc-card-link">
                     <i class="fas fa-table"></i>
                     <h3>Rozvrhy</h3>
                     <p>Aktuální rozvrhy hodin všech tříd</p>
-                </div>
-                <div class="doc-card">
+                </a>
+                <a href="#ke-stazeni" class="doc-card doc-card-link">
                     <i class="fas fa-clipboard-check"></i>
                     <h3>Zkratky předmětů</h3>
                     <p>Přehled zkratek v rozvrhu hodin</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1372,6 +1372,27 @@
             </div>
         </div>
     </footer>
+
+    <!-- Article Detail Modal -->
+    <div class="article-modal-overlay" id="articleModal">
+        <div class="article-modal">
+            <button class="article-modal-close" id="articleModalClose" aria-label="Zavřít">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="article-modal-header" id="articleModalHeader">
+                <div class="article-modal-icon" id="articleModalIcon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <div class="article-modal-meta">
+                    <span class="article-modal-category" id="articleModalCategory"></span>
+                    <span class="article-modal-date" id="articleModalDate"></span>
+                </div>
+                <h2 id="articleModalTitle"></h2>
+            </div>
+            <div class="article-modal-body" id="articleModalBody"></div>
+            <div class="article-modal-footer" id="articleModalFooter"></div>
+        </div>
+    </div>
 
     <!-- Back to top -->
     <button class="back-to-top" id="backToTop" aria-label="Nahoru">
