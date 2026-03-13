@@ -17,33 +17,38 @@ const DEFAULT_ARTICLES = [
     },
     {
         id: 2,
-        title: "Březnový výběr jídla — hlasování",
+        title: "BŘEZEN — Jídlo na přání",
         date: "2026-03-05",
         category: "jidelna",
         icon: "fas fa-utensils",
         color: "#f5576c",
-        summary: "Žáci a rodiče hlasovali o speciální březnové jídlo ve školní jídelně. Zvítězil „Steak s pepřovou omáčkou"!",
-        content: "V rámci pravidelné ankety si žáci a rodiče mohli vybrat speciální jídlo do březnového jídelníčku. Z nabídky několika pokrmů zvítězil steak s pepřovou omáčkou, který bude zařazen do menu."
+        summary: "Žáci a rodiče hlasovali v Bakalářích o březnové jídlo na přání. Výsledek: Steak s pepřovou omáčkou!",
+        content: "Vyberte TENTO TÝDEN jídlo, které Vám jídelna v posledním týdnu měsíce připraví k obědu. HLASUJEME V BAKALÁŘÍCH /ŽÁCI I RODIČE/.\n\nBřeznový VÝSLEDEK HLASOVÁNÍ:\nŽáci a rodiče si v hlasování minulý týden zvolili: Steak s pepřovou omáčkou"
     },
     {
         id: 3,
-        title: "Recyklohraní — Den Země 2026",
+        title: "Naše škola pomáhá životnímu prostředí",
         date: "2026-03-01",
         category: "ekologie",
         icon: "fas fa-recycle",
         color: "#43e97b",
-        summary: "Škola se zapojila do programu sběru baterií. Den Země proběhne 17. dubna 2026 v 10:00 — úklid okolí školy a ekologické aktivity.",
-        content: "Naše škola je aktivním účastníkem celostátního programu Recyklohraní zaměřeného na sběr baterií a elektroodpadu. K oslavě Dne Země připravujeme na 17. dubna 2026 od 10:00 velký úklid okolí školy spojený s ekologickými aktivitami pro žáky všech ročníků."
+        summary: "V rámci programu Recyklohraní jsme v roce 2025 odevzdali 300 kg baterií — přispíváme k úspoře surovin a snížení emisí CO₂.",
+        content: "V roce 2025 jsme se v rámci programu Recyklohraní zapojili do sběru vysloužilých baterií. Díky našemu společnému úsilí jsme odevzdali:\n\n• 300 kg baterií\n\nTím jsme přispěli k:\n• úspoře druhotných surovin,\n• snížení emisí CO₂,\n• úspoře elektrické energie,\n• omezení těžby ropy.\n\nCelkové výsledky sběru škol zapojených do Recyklohraní a jejich přínos pro životní prostředí:\n• 103,3 tun odevzdaných baterií – jejich recyklací bylo získáno 77 468 kg druhotných surovin, které byly využity při výrobě nových produktů.\n\nDěkujeme všem žákům, rodičům i zaměstnancům školy, kteří se do sběru zapojili. Společně ukazujeme, že i malé kroky mají velký význam.",
+        author: "Koordinátorka Recyklohraní Ing. Marie Novotná"
     },
     {
         id: 4,
-        title: "Výsledky zápisu do 1. tříd 2026/2027",
+        title: "Výsledky zápisu do ZŠ pro školní rok 2026/2027",
         date: "2026-02-20",
         category: "zapisy",
         icon: "fas fa-pencil-alt",
         color: "#4facfe",
-        summary: "Anonymizovaný seznam přijatých žáků byl zveřejněn. Všichni uchazeči přijati s výjimkou jednoho nezletilého žadatele (RQ056).",
-        content: "Výsledky zápisu do prvních tříd pro školní rok 2026/2027 byly zveřejněny na úřední desce školy. Všichni uchazeči byli přijati s výjimkou jednoho žadatele (evidenční číslo RQ056), který nesplnil věkovou podmínku."
+        summary: "Anonymizovaný seznam přijatých žáků zveřejněn. Všichni přijati (pouze RQ056 neměl věk). Dodatečně přijat: WC5YB.",
+        content: "V rámci ochrany osobních údajů zveřejňujeme výsledek zápisu formou anonymizovaných výsledků zápisu (ZŠ).\n\nSystém zobrazí anonymizovaný seznam uchazečů z modulu Zápis do 1. ročníků ZŠ v daném školním roce. Seznam obsahuje pouze registrační číslo uchazeče a výsledek zápisu. Je určen pro účely vyvěšení výsledkové listiny zápisů do 1. ročníku ZŠ.\n\nPokud jste ztratili registrační číslo — všichni jsou přijatí (pouze RQ056 neměl věk pro zápis).\n\nDodatečně přijati: WC5YB",
+        hasAttachment: true,
+        attachmentName: "Anonymizované výsledky zápisu (ZŠ)",
+        attachmentFormat: "PDF",
+        attachmentSize: "95.42 KB"
     },
     {
         id: 5,
