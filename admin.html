@@ -62,6 +62,9 @@
                 <a href="#" class="sidebar-link" data-section="contacts">
                     <i class="fas fa-address-book"></i> Kontakty
                 </a>
+                <a href="#" class="sidebar-link" data-section="sections">
+                    <i class="fas fa-puzzle-piece"></i> Sekce webu
+                </a>
                 <a href="#" class="sidebar-link" data-section="settings">
                     <i class="fas fa-cog"></i> Nastavení
                 </a>
@@ -89,7 +92,7 @@
             <div class="admin-section active" id="section-dashboard">
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-card-icon" style="background:#eff6ff;color:#2563eb;">
+                        <div class="stat-card-icon" style="background:#fff8f0;color:#e67e22;">
                             <i class="fas fa-newspaper"></i>
                         </div>
                         <div>
@@ -321,6 +324,111 @@
                 <button class="btn btn-primary" id="addGalleryItem" style="margin-top:16px;">
                     <i class="fas fa-plus"></i> Přidat položku galerie
                 </button>
+            </div>
+
+            <!-- Sections (All website sections) -->
+            <div class="admin-section" id="section-sections">
+                <h3 class="section-title">Sekce webu</h3>
+                <p class="section-desc">Upravte obsah jednotlivých sekcí zobrazených na hlavní stránce. Každá sekce odpovídá části webu s vlastním odkazem v navigaci.</p>
+
+                <div class="pages-list">
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-home"></i> Hero sekce</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="hero">Upravit</button>
+                        </div>
+                        <p>Hlavní nadpis, statistiky, tlačítka na úvodní stránce</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-user-tie"></i> Vedení školy</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="leadership">Upravit</button>
+                        </div>
+                        <p>Ředitel, zástupci ředitele, ICT koordinátorka</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-pencil-alt"></i> Zápis do 1. tříd (banner)</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="enrollment">Upravit</button>
+                        </div>
+                        <p>Banner s informacemi o zápisu</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-project-diagram"></i> Projekty</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="projects">Upravit</button>
+                        </div>
+                        <p>OP JAK, EU peníze školám, ICT, Komenský, NPO, Comenius</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-calendar-alt"></i> Plány a rozvrhy</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="plans">Upravit</button>
+                        </div>
+                        <p>Roční plán, měsíční plán, rozvrhy, výroční zpráva</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-hands-helping"></i> Školní poradenství</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="poradenstvi">Upravit</button>
+                        </div>
+                        <p>Jak do poradny, poradenské služby</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-users"></i> Orgány a sdružení</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="organy">Upravit</button>
+                        </div>
+                        <p>KRPDŠ, žákovský parlament</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-gavel"></i> Školní řád</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="skolniRad">Upravit</button>
+                        </div>
+                        <p>Pravidla a povinnosti žáků, řád školy</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-id-card"></i> Kontakty (rozšířené)</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="kontaktExtra">Upravit</button>
+                        </div>
+                        <p>7 kontaktních bloků: škola, vedení, konzultace, GDPR, ICT, e-mail, whistleblowing</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-flag"></i> Ukrajina</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="ukraine">Upravit</button>
+                        </div>
+                        <p>Informace pro ukrajinské žáky a rodiče</p>
+                    </div>
+                    <div class="page-edit-card">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-columns"></i> Patička (footer)</h4>
+                            <button class="btn btn-small edit-section-btn" data-section="footer">Upravit</button>
+                        </div>
+                        <p>Popis školy, odkazy, provozní doba</p>
+                    </div>
+                </div>
+
+                <!-- Section editor modal -->
+                <div class="modal-overlay" id="sectionEditorModal" style="display:none;">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3 id="sectionEditorTitle">Upravit sekci</h3>
+                            <button class="modal-close" id="closeSectionEditor">&times;</button>
+                        </div>
+                        <div class="modal-body" id="sectionEditorBody">
+                            <!-- Dynamic form content loaded by JS -->
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-ghost" id="cancelSectionEdit">Zrušit</button>
+                            <button class="btn btn-primary" id="saveSectionEdit">
+                                <i class="fas fa-save"></i> Uložit změny
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Contacts Section -->

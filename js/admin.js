@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dashboard: 'Přehled',
         articles: 'Správa článků',
         pages: 'Úprava stránek',
+        sections: 'Sekce webu',
         gallery: 'Galerie',
         contacts: 'Kontakty',
         settings: 'Nastavení'
@@ -489,6 +490,266 @@ document.addEventListener('DOMContentLoaded', function() {
         this.reset();
     });
 
+    // --- Section Editor (all website sections) ---
+    let currentEditSection = null;
+
+    document.querySelectorAll('.edit-section-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            openSectionEditor(this.dataset.section);
+        });
+    });
+
+    function openSectionEditor(sectionKey) {
+        currentEditSection = sectionKey;
+        const modal = document.getElementById('sectionEditorModal');
+        const body = document.getElementById('sectionEditorBody');
+        const title = document.getElementById('sectionEditorTitle');
+        const data = getSectionContent(sectionKey);
+
+        const titles = {
+            hero: 'Hero sekce', leadership: 'Vedení školy', enrollment: 'Zápis do 1. tříd',
+            projects: 'Projekty', plans: 'Plány a rozvrhy', poradenstvi: 'Školní poradenství',
+            organy: 'Orgány a sdružení', skolniRad: 'Školní řád', kontaktExtra: 'Kontakty (rozšířené)',
+            ukraine: 'Ukrajina', footer: 'Patička (footer)'
+        };
+        title.textContent = 'Upravit — ' + (titles[sectionKey] || sectionKey);
+
+        body.innerHTML = buildSectionForm(sectionKey, data);
+        modal.style.display = 'flex';
+    }
+
+    function buildSectionForm(key, data) {
+        if (key === 'hero') {
+            return `
+                <div class="form-group"><label>Hlavní nadpis (HTML)</label><textarea id="sf_heroTitle" rows="2" class="form-control">${data.title || ''}</textarea></div>
+                <div class="form-group"><label>Podnadpis (HTML)</label><textarea id="sf_heroSubtitle" rows="2">${data.subtitle || ''}</textarea></div>
+                <h4 style="margin:16px 0 8px">Statistiky</h4>
+                ${data.stats.map((s, i) => `
+                    <div class="form-row">
+                        <div class="form-group"><label>Číslo ${i+1}</label><input type="number" id="sf_statCount${i}" value="${s.count}"></div>
+                        <div class="form-group"><label>Popisek ${i+1}</label><input type="text" id="sf_statLabel${i}" value="${s.label}"></div>
+                    </div>`).join('')}
+                <h4 style="margin:16px 0 8px">Tlačítka</h4>
+                <div class="form-row">
+                    <div class="form-group"><label>Tlačítko 1 text</label><input type="text" id="sf_btn1Text" value="${data.btnPrimary.text}"></div>
+                    <div class="form-group"><label>Tlačítko 1 odkaz</label><input type="text" id="sf_btn1Link" value="${data.btnPrimary.link}"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Tlačítko 2 text</label><input type="text" id="sf_btn2Text" value="${data.btnSecondary.text}"></div>
+                    <div class="form-group"><label>Tlačítko 2 odkaz</label><input type="text" id="sf_btn2Link" value="${data.btnSecondary.link}"></div>
+                </div>`;
+        }
+        if (key === 'leadership') {
+            return `<p style="margin-bottom:16px;color:#64748b;">Upravte údaje vedení školy. Každá karta = jeden člen vedení.</p>` +
+                data.map((p, i) => `
+                    <div class="card" style="margin-bottom:12px;padding:16px;">
+                        <h4 style="margin-bottom:8px;">Člen ${i+1}</h4>
+                        <div class="form-row">
+                            <div class="form-group"><label>Jméno</label><input type="text" id="sf_leader${i}Name" value="${escapeHtml(p.name)}"></div>
+                            <div class="form-group"><label>Pozice</label><input type="text" id="sf_leader${i}Role" value="${escapeHtml(p.role)}"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>Ikona</label><input type="text" id="sf_leader${i}Icon" value="${p.icon}"></div>
+                            <div class="form-group"><label>E-mail</label><input type="text" id="sf_leader${i}Contact" value="${p.contact || ''}"></div>
+                        </div>
+                    </div>`).join('');
+        }
+        if (key === 'enrollment') {
+            return `
+                <div class="form-group"><label>Nadpis (HTML)</label><input type="text" id="sf_enrollTitle" value="${data.title || ''}"></div>
+                <div class="form-group"><label>Text</label><textarea id="sf_enrollText" rows="3">${data.text || ''}</textarea></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Text tlačítka</label><input type="text" id="sf_enrollBtn" value="${data.btnText || ''}"></div>
+                    <div class="form-group"><label>Odkaz tlačítka</label><input type="text" id="sf_enrollLink" value="${data.btnLink || ''}"></div>
+                </div>`;
+        }
+        if (key === 'projects') {
+            return `<p style="margin-bottom:16px;color:#64748b;">Upravte projekty školy.</p>` +
+                data.map((p, i) => `
+                    <div class="card" style="margin-bottom:12px;padding:16px;">
+                        <div class="form-row">
+                            <div class="form-group"><label>Název</label><input type="text" id="sf_proj${i}Title" value="${escapeHtml(p.title)}"></div>
+                            <div class="form-group"><label>Štítek</label><input type="text" id="sf_proj${i}Badge" value="${p.badge || ''}"></div>
+                        </div>
+                        <div class="form-group"><label>Popis</label><textarea id="sf_proj${i}Desc" rows="2">${escapeHtml(p.desc)}</textarea></div>
+                    </div>`).join('');
+        }
+        if (key === 'plans') {
+            return data.map((p, i) => `
+                <div class="card" style="margin-bottom:12px;padding:16px;">
+                    <div class="form-row">
+                        <div class="form-group"><label>Název</label><input type="text" id="sf_plan${i}Title" value="${escapeHtml(p.title)}"></div>
+                        <div class="form-group"><label>Ikona</label><input type="text" id="sf_plan${i}Icon" value="${p.icon}"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Popis</label><input type="text" id="sf_plan${i}Desc" value="${escapeHtml(p.desc)}"></div>
+                        <div class="form-group"><label>Odkaz</label><input type="text" id="sf_plan${i}Link" value="${p.link || '#'}"></div>
+                    </div>
+                    <div class="form-group"><label>Štítek</label><input type="text" id="sf_plan${i}Tag" value="${p.tag || ''}"></div>
+                </div>`).join('');
+        }
+        if (key === 'poradenstvi') {
+            return `
+                <div class="form-group"><label>Jak do poradny (HTML)</label><textarea id="sf_poradJak" rows="6">${data.jak || ''}</textarea></div>
+                <div class="form-group"><label>Poradenské služby (HTML)</label><textarea id="sf_poradSluzby" rows="6">${data.sluzby || ''}</textarea></div>`;
+        }
+        if (key === 'organy') {
+            return `
+                <div class="form-group"><label>KRPDŠ (HTML)</label><textarea id="sf_orgKrpds" rows="5">${data.krpds || ''}</textarea></div>
+                <div class="form-group"><label>Žákovský parlament (HTML)</label><textarea id="sf_orgParlament" rows="5">${data.parlament || ''}</textarea></div>`;
+        }
+        if (key === 'skolniRad') {
+            return `<div class="form-group"><label>Obsah školního řádu (HTML)</label><textarea id="sf_skolniRad" rows="8">${data || ''}</textarea></div>`;
+        }
+        if (key === 'kontaktExtra') {
+            return `<p style="margin-bottom:16px;color:#64748b;">7 kontaktních bloků zobrazených na webu.</p>` +
+                data.map((c, i) => `
+                    <div class="card" style="margin-bottom:12px;padding:16px;">
+                        <div class="form-row">
+                            <div class="form-group"><label>Název</label><input type="text" id="sf_kont${i}Title" value="${escapeHtml(c.title)}"></div>
+                            <div class="form-group"><label>Ikona</label><input type="text" id="sf_kont${i}Icon" value="${c.icon}"></div>
+                        </div>
+                        <div class="form-group"><label>Obsah (HTML &lt;li&gt; tagy)</label><textarea id="sf_kont${i}Content" rows="3">${c.content || ''}</textarea></div>
+                    </div>`).join('');
+        }
+        if (key === 'ukraine') {
+            return `
+                <div class="form-group"><label>Nadpis sekce</label><input type="text" id="sf_uaHeader" value="${escapeHtml(data.header || '')}"></div>` +
+                data.cards.map((c, i) => `
+                    <div class="card" style="margin-bottom:12px;padding:16px;">
+                        <div class="form-row">
+                            <div class="form-group"><label>Název karty</label><input type="text" id="sf_ua${i}Title" value="${escapeHtml(c.title)}"></div>
+                            <div class="form-group"><label>Ikona</label><input type="text" id="sf_ua${i}Icon" value="${c.icon}"></div>
+                        </div>
+                        <div class="form-group"><label>Obsah (HTML)</label><textarea id="sf_ua${i}Content" rows="4">${c.content || ''}</textarea></div>
+                    </div>`).join('');
+        }
+        if (key === 'footer') {
+            return `
+                <div class="form-group"><label>Popis školy</label><textarea id="sf_footerDesc" rows="2">${data.desc || ''}</textarea></div>
+                <div class="form-group"><label>Provozní doba</label><input type="text" id="sf_footerHours" value="${data.hours || ''}"></div>
+                <h4 style="margin:16px 0 8px">Odkazy v patičce</h4>` +
+                data.links.map((l, i) => `
+                    <div class="form-row">
+                        <div class="form-group"><label>Text ${i+1}</label><input type="text" id="sf_flink${i}Text" value="${escapeHtml(l.text)}"></div>
+                        <div class="form-group"><label>Odkaz ${i+1}</label><input type="text" id="sf_flink${i}Href" value="${l.href}"></div>
+                    </div>`).join('');
+        }
+        return '<p>Editor pro tuto sekci není k dispozici.</p>';
+    }
+
+    function collectSectionData(key) {
+        const data = getSectionContent(key);
+        if (key === 'hero') {
+            data.title = document.getElementById('sf_heroTitle').value;
+            data.subtitle = document.getElementById('sf_heroSubtitle').value;
+            data.stats.forEach((s, i) => {
+                s.count = parseInt(document.getElementById('sf_statCount' + i).value) || 0;
+                s.label = document.getElementById('sf_statLabel' + i).value;
+            });
+            data.btnPrimary.text = document.getElementById('sf_btn1Text').value;
+            data.btnPrimary.link = document.getElementById('sf_btn1Link').value;
+            data.btnSecondary.text = document.getElementById('sf_btn2Text').value;
+            data.btnSecondary.link = document.getElementById('sf_btn2Link').value;
+            return data;
+        }
+        if (key === 'leadership') {
+            return data.map((p, i) => ({
+                name: document.getElementById('sf_leader' + i + 'Name').value,
+                role: document.getElementById('sf_leader' + i + 'Role').value,
+                icon: document.getElementById('sf_leader' + i + 'Icon').value,
+                contact: document.getElementById('sf_leader' + i + 'Contact').value
+            }));
+        }
+        if (key === 'enrollment') {
+            return {
+                title: document.getElementById('sf_enrollTitle').value,
+                text: document.getElementById('sf_enrollText').value,
+                btnText: document.getElementById('sf_enrollBtn').value,
+                btnLink: document.getElementById('sf_enrollLink').value
+            };
+        }
+        if (key === 'projects') {
+            return data.map((p, i) => ({
+                title: document.getElementById('sf_proj' + i + 'Title').value,
+                desc: document.getElementById('sf_proj' + i + 'Desc').value,
+                badge: document.getElementById('sf_proj' + i + 'Badge').value
+            }));
+        }
+        if (key === 'plans') {
+            return data.map((p, i) => ({
+                title: document.getElementById('sf_plan' + i + 'Title').value,
+                desc: document.getElementById('sf_plan' + i + 'Desc').value,
+                icon: document.getElementById('sf_plan' + i + 'Icon').value,
+                tag: document.getElementById('sf_plan' + i + 'Tag').value,
+                link: document.getElementById('sf_plan' + i + 'Link').value
+            }));
+        }
+        if (key === 'poradenstvi') {
+            return {
+                jak: document.getElementById('sf_poradJak').value,
+                sluzby: document.getElementById('sf_poradSluzby').value
+            };
+        }
+        if (key === 'organy') {
+            return {
+                krpds: document.getElementById('sf_orgKrpds').value,
+                parlament: document.getElementById('sf_orgParlament').value
+            };
+        }
+        if (key === 'skolniRad') {
+            return document.getElementById('sf_skolniRad').value;
+        }
+        if (key === 'kontaktExtra') {
+            return data.map((c, i) => ({
+                title: document.getElementById('sf_kont' + i + 'Title').value,
+                icon: document.getElementById('sf_kont' + i + 'Icon').value,
+                content: document.getElementById('sf_kont' + i + 'Content').value
+            }));
+        }
+        if (key === 'ukraine') {
+            return {
+                header: document.getElementById('sf_uaHeader').value,
+                cards: data.cards.map((c, i) => ({
+                    title: document.getElementById('sf_ua' + i + 'Title').value,
+                    icon: document.getElementById('sf_ua' + i + 'Icon').value,
+                    content: document.getElementById('sf_ua' + i + 'Content').value
+                }))
+            };
+        }
+        if (key === 'footer') {
+            return {
+                desc: document.getElementById('sf_footerDesc').value,
+                hours: document.getElementById('sf_footerHours').value,
+                links: data.links.map((l, i) => ({
+                    text: document.getElementById('sf_flink' + i + 'Text').value,
+                    href: document.getElementById('sf_flink' + i + 'Href').value
+                }))
+            };
+        }
+        return data;
+    }
+
+    document.getElementById('closeSectionEditor').addEventListener('click', closeSectionEditor);
+    document.getElementById('cancelSectionEdit').addEventListener('click', closeSectionEditor);
+
+    function closeSectionEditor() {
+        document.getElementById('sectionEditorModal').style.display = 'none';
+        currentEditSection = null;
+    }
+
+    document.getElementById('saveSectionEdit').addEventListener('click', function() {
+        if (!currentEditSection) return;
+        const data = collectSectionData(currentEditSection);
+        saveSectionContent(currentEditSection, data);
+        showToast('Sekce byla uložena!', 'success');
+        closeSectionEditor();
+    });
+
+    document.getElementById('sectionEditorModal').addEventListener('click', function(e) {
+        if (e.target === this) closeSectionEditor();
+    });
+
     // --- Export / Import ---
     document.getElementById('exportData').addEventListener('click', function() {
         const data = {
@@ -501,6 +762,12 @@ document.addEventListener('DOMContentLoaded', function() {
         ['about', 'druzina', 'jidelna', 'enrollment'].forEach(key => {
             const val = getEditableContent(key);
             if (val) data.pages[key] = val;
+        });
+        // Collect section content
+        data.sections = {};
+        getAllSectionKeys().forEach(key => {
+            const stored = localStorage.getItem('zs_section_' + key);
+            if (stored) data.sections[key] = JSON.parse(stored);
         });
 
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -528,6 +795,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         saveEditableContent(key, data.pages[key]);
                     });
                 }
+                if (data.sections) {
+                    Object.keys(data.sections).forEach(key => {
+                        saveSectionContent(key, data.sections[key]);
+                    });
+                }
                 showToast('Data importována!', 'success');
                 loadDashboard();
             } catch (err) {
@@ -544,6 +816,9 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('zs_contacts');
         ['about', 'druzina', 'jidelna', 'enrollment'].forEach(key => {
             localStorage.removeItem('zs_editable_' + key);
+        });
+        getAllSectionKeys().forEach(key => {
+            localStorage.removeItem('zs_section_' + key);
         });
         showToast('Data obnovena na výchozí hodnoty.', 'success');
         loadDashboard();

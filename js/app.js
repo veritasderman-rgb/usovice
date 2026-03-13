@@ -159,6 +159,157 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderNews();
 
+    // --- Load CMS Section Content ---
+    function loadSectionContent() {
+        // Hero
+        const hero = getSectionContent('hero');
+        if (hero) {
+            const heroTitle = document.querySelector('.hero-title');
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroTitle) heroTitle.innerHTML = hero.title;
+            if (heroSubtitle) heroSubtitle.innerHTML = hero.subtitle;
+            // Stats
+            const statEls = document.querySelectorAll('.hero-stats .stat');
+            hero.stats.forEach((s, i) => {
+                if (statEls[i]) {
+                    const numEl = statEls[i].querySelector('.stat-number');
+                    const labelEl = statEls[i].querySelector('.stat-label');
+                    if (numEl) { numEl.dataset.count = s.count; numEl.textContent = '0'; }
+                    if (labelEl) labelEl.textContent = s.label;
+                }
+            });
+            // Buttons
+            const btns = document.querySelectorAll('.hero-buttons a');
+            if (btns[0]) { btns[0].textContent = hero.btnPrimary.text; btns[0].href = hero.btnPrimary.link; }
+            if (btns[1]) { btns[1].textContent = hero.btnSecondary.text; btns[1].href = hero.btnSecondary.link; }
+        }
+
+        // Leadership
+        const leadership = getSectionContent('leadership');
+        const leaderGrid = document.querySelector('.leadership-grid');
+        if (leadership && leaderGrid) {
+            leaderGrid.innerHTML = leadership.map(p => `
+                <div class="leader-card">
+                    <div class="leader-avatar"><i class="${p.icon}"></i></div>
+                    <h3>${escapeHtml(p.name)}</h3>
+                    <p class="leader-role">${escapeHtml(p.role)}</p>
+                    ${p.contact ? '<p><i class="fas fa-envelope"></i> ' + escapeHtml(p.contact) + '</p>' : ''}
+                </div>`).join('');
+        }
+
+        // Enrollment banner
+        const enrollment = getSectionContent('enrollment');
+        if (enrollment) {
+            const bannerText = document.querySelector('#enrollment .banner-text');
+            const bannerBtn = document.querySelector('#enrollment .btn');
+            if (bannerText) {
+                bannerText.innerHTML = '<h2>' + enrollment.title + '</h2><p>' + enrollment.text + '</p>';
+            }
+            if (bannerBtn) {
+                bannerBtn.textContent = enrollment.btnText;
+                bannerBtn.href = enrollment.btnLink;
+            }
+        }
+
+        // Projects
+        const projects = getSectionContent('projects');
+        const projGrid = document.querySelector('.projects-grid');
+        if (projects && projGrid) {
+            projGrid.innerHTML = projects.map(p => `
+                <div class="project-card">
+                    <span class="project-badge">${escapeHtml(p.badge)}</span>
+                    <h3>${escapeHtml(p.title)}</h3>
+                    <p>${escapeHtml(p.desc)}</p>
+                </div>`).join('');
+        }
+
+        // Plans
+        const plans = getSectionContent('plans');
+        const plansGrid = document.querySelector('.plans-grid');
+        if (plans && plansGrid) {
+            plansGrid.innerHTML = plans.map(p => `
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="${p.icon}"></i></div>
+                    <h3>${escapeHtml(p.title)}</h3>
+                    <p>${escapeHtml(p.desc)}</p>
+                    <span class="plan-tag">${escapeHtml(p.tag)}</span>
+                </div>`).join('');
+        }
+
+        // Poradenství
+        const poradenstvi = getSectionContent('poradenstvi');
+        const poradGrid = document.querySelector('.poradenstvi-grid');
+        if (poradenstvi && poradGrid) {
+            const cards = poradGrid.querySelectorAll('.poradenstvi-card');
+            if (cards[0]) cards[0].innerHTML = poradenstvi.jak;
+            if (cards[1]) cards[1].innerHTML = poradenstvi.sluzby;
+        }
+
+        // Orgány
+        const organy = getSectionContent('organy');
+        const orgGrid = document.querySelector('.organy-grid');
+        if (organy && orgGrid) {
+            const cards = orgGrid.querySelectorAll('.organy-card');
+            if (cards[0]) {
+                const iconEl = cards[0].querySelector('.organy-icon');
+                const iconHtml = iconEl ? iconEl.outerHTML : '';
+                cards[0].innerHTML = iconHtml + organy.krpds;
+            }
+            if (cards[1]) {
+                const iconEl = cards[1].querySelector('.organy-icon');
+                const iconHtml = iconEl ? iconEl.outerHTML : '';
+                cards[1].innerHTML = iconHtml + organy.parlament;
+            }
+        }
+
+        // Kontakt Extra
+        const kontaktExtra = getSectionContent('kontaktExtra');
+        const kontGrid = document.querySelector('.kontakt-tabs-grid');
+        if (kontaktExtra && kontGrid) {
+            kontGrid.innerHTML = kontaktExtra.map(c => `
+                <div class="kontakt-block">
+                    <h3><i class="${c.icon}"></i> ${escapeHtml(c.title)}</h3>
+                    <ul class="contact-detail-list">${c.content}</ul>
+                </div>`).join('');
+        }
+
+        // Ukraine
+        const ukraine = getSectionContent('ukraine');
+        const uaGrid = document.querySelector('.ukraine-grid');
+        const uaHeader = document.querySelector('.ukraine-header');
+        if (ukraine && uaGrid) {
+            if (uaHeader) {
+                const h2 = uaHeader.querySelector('h2');
+                if (h2) h2.textContent = ukraine.header;
+            }
+            uaGrid.innerHTML = ukraine.cards.map(c => `
+                <div class="ukraine-card">
+                    <h3><i class="${c.icon}"></i> ${escapeHtml(c.title)}</h3>
+                    ${c.content}
+                </div>`).join('');
+        }
+
+        // Footer
+        const footer = getSectionContent('footer');
+        if (footer) {
+            const footerDesc = document.querySelector('.footer-col p:first-of-type');
+            const footerLinks = document.querySelector('.footer-col:nth-child(2) ul');
+            if (footerDesc && footerDesc.closest('.footer-col').querySelector('h4')) {
+                // Find the footer description paragraph (after h4 in first column)
+                const firstCol = document.querySelector('.footer-grid .footer-col');
+                if (firstCol) {
+                    const descP = firstCol.querySelectorAll('p');
+                    descP.forEach(p => {
+                        if (!p.querySelector('i') && p.textContent.includes('Tvořivá')) {
+                            p.textContent = footer.desc;
+                        }
+                    });
+                }
+            }
+        }
+    }
+    loadSectionContent();
+
     // --- Hero Carousel ---
     function initHeroCarousel() {
         const track = document.getElementById('carouselTrack');
