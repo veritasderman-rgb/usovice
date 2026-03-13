@@ -64,6 +64,35 @@ ul { list-style: none; }
     margin: 6px 0; transition: all 0.3s; border-radius: 2px;
 }
 
+/* ===== DROPDOWN NAVIGATION ===== */
+.nav-item { position: relative; }
+.nav-arrow { font-size: 0.65rem; margin-left: 2px; transition: transform 0.25s; }
+.has-dropdown:hover .nav-arrow { transform: rotate(180deg); }
+
+.dropdown {
+    position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12); padding: 8px;
+    min-width: 230px; opacity: 0; pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(-50%) translateY(-6px);
+    z-index: 200;
+}
+.has-dropdown:hover .dropdown {
+    opacity: 1; pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+}
+.dropdown-link {
+    display: flex; align-items: center; gap: 10px; padding: 9px 14px;
+    border-radius: 8px; font-size: 0.875rem; font-weight: 500; color: #374151;
+    transition: all 0.15s; white-space: nowrap;
+}
+.dropdown-link:hover { background: #eff6ff; color: #2563eb; }
+.dropdown-link i { width: 16px; text-align: center; color: #2563eb; font-size: 0.8rem; }
+
+/* Ukrainian nav link */
+.nav-ua { color: #005bbb !important; font-size: 0.82rem !important; font-weight: 600 !important; }
+
 /* ===== HERO ===== */
 .hero {
     position: relative; min-height: 600px; display: flex; align-items: center;
@@ -335,6 +364,226 @@ ul { list-style: none; }
 }
 .animate-in { animation: fadeInUp 0.6s ease forwards; }
 
+/* ===== BAKALÁŘI — info cards ===== */
+.info-cards-3 { display: grid; gap: 24px; }
+.info-card-full {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 28px; display: flex; gap: 20px; align-items: flex-start;
+    transition: box-shadow 0.2s;
+}
+.info-card-full:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.info-card-icon {
+    width: 56px; min-width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.3rem;
+}
+.info-card-full h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.info-card-full p { color: #475569; margin-bottom: 8px; }
+.numbered-list { padding-left: 20px; color: #475569; }
+.numbered-list li { margin-bottom: 6px; }
+.note-box {
+    background: #eff6ff; border-left: 3px solid #2563eb; padding: 10px 14px;
+    border-radius: 0 8px 8px 0; font-size: 0.9rem; color: #475569; margin-top: 12px;
+}
+.note-box i { color: #2563eb; margin-right: 8px; }
+.ua-contact-list { list-style: none; margin-top: 10px; }
+.ua-contact-list li { padding: 4px 0; color: #475569; }
+.ua-contact-list li i { color: #2563eb; width: 18px; margin-right: 6px; }
+
+/* ===== PLANS ===== */
+.plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.plan-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 28px 20px; text-align: center; transition: all 0.3s;
+}
+.plan-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.plan-icon {
+    width: 56px; height: 56px; background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: 16px; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; font-size: 1.3rem; color: #2563eb;
+}
+.plan-card h3 { font-size: 1rem; margin-bottom: 8px; }
+.plan-card p { font-size: 0.85rem; color: #64748b; margin-bottom: 10px; }
+.plan-tag {
+    display: inline-block; background: #eff6ff; color: #2563eb;
+    padding: 3px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+}
+
+/* ===== PORADENSTVÍ ===== */
+.poradenstvi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.poradenstvi-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px;
+}
+.poradenstvi-card h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.poradenstvi-card h3 i { color: #2563eb; margin-right: 8px; }
+.poradenstvi-card ul { padding-left: 18px; color: #475569; }
+.poradenstvi-card ul li { margin-bottom: 6px; }
+.sluzby-list { display: flex; flex-direction: column; gap: 16px; }
+.sluzba-item { display: flex; align-items: flex-start; gap: 14px; }
+.sluzba-item > i { font-size: 1.1rem; color: #2563eb; margin-top: 3px; width: 20px; }
+.sluzba-item strong { display: block; margin-bottom: 2px; }
+.sluzba-item p { font-size: 0.85rem; color: #64748b; margin: 0; }
+
+/* ===== ORGÁNY ===== */
+.organy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.organy-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 32px; text-align: center; transition: all 0.3s;
+}
+.organy-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.organy-icon {
+    width: 64px; height: 64px; background: linear-gradient(135deg, #2563eb, #7c3aed);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; color: #fff; font-size: 1.5rem;
+}
+.organy-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.organy-card p { color: #475569; margin-bottom: 10px; }
+.organy-card ul { text-align: left; padding-left: 18px; color: #475569; font-size: 0.9rem; }
+.organy-card ul li { margin-bottom: 4px; }
+
+/* ===== KE STAŽENÍ ===== */
+.download-grid { display: grid; gap: 10px; }
+.download-item {
+    display: flex; align-items: center; gap: 16px; background: #fff;
+    border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px;
+    transition: all 0.2s; cursor: pointer;
+}
+.download-item:hover { border-color: #2563eb; background: #f8fbff; }
+.download-icon {
+    width: 44px; min-width: 44px; height: 44px; background: #eff6ff; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color: #2563eb;
+}
+.download-info { flex: 1; }
+.download-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
+.download-info p { font-size: 0.8rem; color: #64748b; margin: 0; }
+.download-badge {
+    background: #eff6ff; color: #2563eb; padding: 3px 10px;
+    border-radius: 6px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+}
+
+/* ===== ŠKOLNÍ ŘÁD ===== */
+.rad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.rad-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px;
+}
+.rad-card h3 { font-size: 1.1rem; margin-bottom: 14px; }
+.rad-card h3 i { color: #2563eb; margin-right: 8px; }
+.rad-card > p { color: #475569; margin-bottom: 16px; }
+.rad-highlights { display: flex; flex-direction: column; gap: 8px; }
+.rad-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: #475569; }
+.rad-item i { color: #2563eb; margin-top: 2px; flex-shrink: 0; }
+
+/* ===== TABS (Družina, Jídelna) ===== */
+.tabs-wrapper {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden;
+}
+.tabs {
+    display: flex; gap: 2px; padding: 12px 12px 0; background: #f8fafc;
+    flex-wrap: wrap; border-bottom: 1px solid #e2e8f0;
+}
+.tab {
+    padding: 8px 16px; border: none; background: none; border-radius: 8px 8px 0 0;
+    font-size: 0.85rem; font-weight: 500; cursor: pointer; color: #64748b;
+    transition: all 0.2s; font-family: inherit; border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+.tab:hover { color: #2563eb; background: #eff6ff; }
+.tab.active { color: #2563eb; border-bottom-color: #2563eb; background: #fff; font-weight: 600; }
+.tab-content { display: none; padding: 28px; }
+.tab-content.active { display: block; }
+.tab-content h3 { font-size: 1.1rem; margin-bottom: 14px; color: #0f172a; }
+.tab-content h3 i { color: #2563eb; margin-right: 8px; }
+.tab-content p { color: #475569; margin-bottom: 10px; }
+.tab-content ul { padding-left: 18px; color: #475569; }
+.tab-content ul li { margin-bottom: 6px; }
+.tab-content ol { padding-left: 18px; color: #475569; }
+.tab-content ol li { margin-bottom: 6px; }
+
+/* Inline links inside tabs */
+.jidelna-links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+
+/* Steps */
+.info-steps { display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+.step { display: flex; align-items: flex-start; gap: 12px; }
+.step-num {
+    width: 28px; min-width: 28px; height: 28px; background: #2563eb; color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem;
+}
+.step p { margin: 0; color: #475569; font-size: 0.9rem; padding-top: 4px; }
+
+/* Alergeny grid */
+.alergeny-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0;
+}
+.alergen-item {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 8px 12px; font-size: 0.8rem; color: #475569; display: flex; gap: 8px;
+}
+.alergen-item span {
+    background: #2563eb; color: #fff; border-radius: 4px; padding: 0 6px;
+    font-weight: 700; font-size: 0.75rem; display: flex; align-items: center;
+}
+
+/* Mini gallery (Fotky z družiny) */
+.mini-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 12px; }
+.mini-gallery-item { height: 100px; border-radius: 10px; position: relative; overflow: hidden; cursor: pointer; }
+.mini-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.35);
+    display: flex; align-items: flex-end; padding: 8px;
+}
+.mini-overlay span { color: #fff; font-size: 0.8rem; font-weight: 600; }
+
+/* ===== KONTAKT EXTRA ===== */
+.kontakt-tabs-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.kontakt-block {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px;
+    transition: all 0.2s;
+}
+.kontakt-block:hover { border-color: #2563eb; box-shadow: 0 4px 15px rgba(37,99,235,0.08); }
+.kontakt-block h3 { font-size: 1rem; margin-bottom: 14px; }
+.kontakt-block h3 i { color: #2563eb; margin-right: 8px; }
+.kontakt-block > p { color: #475569; font-size: 0.9rem; margin-bottom: 10px; }
+.contact-detail-list { list-style: none; }
+.contact-detail-list li { padding: 5px 0; color: #475569; font-size: 0.875rem; border-bottom: 1px solid #f1f5f9; }
+.contact-detail-list li:last-child { border-bottom: none; }
+.contact-detail-list li i { color: #2563eb; width: 18px; margin-right: 6px; }
+.contact-detail-list li a { color: #2563eb; }
+.contact-detail-list li a:hover { text-decoration: underline; }
+
+/* ===== UKRAINE FULL SECTION ===== */
+.ukraine-header {
+    display: flex; align-items: center; gap: 24px; margin-bottom: 40px;
+    padding: 28px; background: linear-gradient(135deg, #005bbb15, #ffd50015);
+    border-radius: 16px; border: 1px solid #e2e8f0;
+}
+.ukraine-flag-large {
+    width: 72px; min-width: 72px; height: 48px; border-radius: 8px;
+    background: linear-gradient(180deg, #005bbb 50%, #ffd500 50%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+.ukraine-header h2 { font-size: 1.6rem; margin-bottom: 4px; }
+.ukraine-header p { color: #64748b; }
+.ukraine-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ukraine-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px;
+    transition: all 0.2s;
+}
+.ukraine-card:hover { border-color: #005bbb; box-shadow: 0 4px 15px rgba(0,91,187,0.08); }
+.ukraine-card h3 { font-size: 1rem; margin-bottom: 12px; }
+.ukraine-card h3 i { color: #005bbb; margin-right: 8px; }
+.ukraine-card p { color: #475569; font-size: 0.9rem; margin-bottom: 8px; }
+.ukraine-card ul { padding-left: 16px; color: #475569; font-size: 0.875rem; }
+.ukraine-card ul li { margin-bottom: 5px; }
+.ukraine-card ol { padding-left: 18px; color: #475569; font-size: 0.875rem; }
+.ukraine-card ol li { margin-bottom: 6px; }
+.ukraine-card a { color: #005bbb; }
+.ukraine-card a:hover { text-decoration: underline; }
+.ukraine-contact-card { background: linear-gradient(135deg, #eff6ff, #f0fdf4); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .quick-links-grid { grid-template-columns: repeat(2, 1fr); }
@@ -344,18 +593,38 @@ ul { list-style: none; }
     .jidelna-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(2, 1fr); }
-    .projects-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .plans-grid { grid-template-columns: repeat(2, 1fr); }
+    .poradenstvi-grid { grid-template-columns: 1fr; }
+    .organy-grid { grid-template-columns: 1fr; }
+    .rad-grid { grid-template-columns: 1fr; }
+    .kontakt-tabs-grid { grid-template-columns: repeat(2, 1fr); }
+    .ukraine-grid { grid-template-columns: repeat(2, 1fr); }
+    .alergeny-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1100px) {
+    .nav-link { padding: 8px 10px; font-size: 0.82rem; }
 }
 
 @media (max-width: 768px) {
     .top-bar-left, .top-bar-right { flex-wrap: wrap; }
     .nav {
-        display: none; position: fixed; top: 72px; left: 0; right: 0;
-        background: #fff; padding: 16px; flex-direction: column;
+        display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+        background: #fff; padding: 16px; flex-direction: column; overflow-y: auto;
         box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
     .nav.open { display: flex; }
     .nav-toggle { display: block; }
+    /* Mobile dropdowns — always visible, inline */
+    .has-dropdown .dropdown {
+        position: static; transform: none; opacity: 1; pointer-events: all;
+        box-shadow: none; border: none; border-left: 2px solid #e2e8f0;
+        border-radius: 0; margin-left: 12px; margin-bottom: 4px;
+        padding: 4px 0; display: none;
+    }
+    .has-dropdown.mobile-open .dropdown { display: block; }
+    .has-dropdown .nav-arrow { float: right; margin-top: 3px; }
     .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
     .nav-toggle.active span:nth-child(2) { opacity: 0; }
     .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
@@ -373,4 +642,11 @@ ul { list-style: none; }
     .footer-grid { grid-template-columns: 1fr; }
     .banner-content { flex-direction: column; text-align: center; }
     .footer-bottom { flex-direction: column; text-align: center; }
+    .plans-grid { grid-template-columns: 1fr; }
+    .kontakt-tabs-grid { grid-template-columns: 1fr; }
+    .ukraine-grid { grid-template-columns: 1fr; }
+    .info-card-full { flex-direction: column; }
+    .alergeny-grid { grid-template-columns: repeat(2, 1fr); }
+    .mini-gallery { grid-template-columns: repeat(2, 1fr); }
+    .ukraine-header { flex-direction: column; text-align: center; }
 }

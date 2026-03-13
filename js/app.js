@@ -9,8 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.toggle('open');
             navToggle.classList.toggle('active');
         });
-        // Close nav on link click
-        nav.querySelectorAll('.nav-link').forEach(link => {
+        // On mobile: toggle dropdown on parent click instead of navigating
+        nav.querySelectorAll('.has-dropdown > .nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = this.closest('.has-dropdown');
+                    parent.classList.toggle('mobile-open');
+                }
+            });
+        });
+        // Close nav on leaf link click
+        nav.querySelectorAll('.dropdown-link, a.nav-link:not(.has-dropdown .nav-link)').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('open');
                 navToggle.classList.remove('active');
@@ -148,6 +158,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     renderNews();
+
+    // --- Tabs (Družina, Jídelna) ---
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const targetId = this.dataset.tab;
+            const wrapper = this.closest('.tabs-wrapper');
+            // Deactivate all in this wrapper
+            wrapper.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            wrapper.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            // Activate selected
+            this.classList.add('active');
+            const content = wrapper.querySelector('#' + targetId);
+            if (content) content.classList.add('active');
+        });
+    });
+
+    // Open correct tab if URL hash targets a tab-content
+    function openTabByHash() {
+        const hash = window.location.hash.replace('#', '');
+        if (!hash) return;
+        const target = document.getElementById(hash);
+        if (target && target.classList.contains('tab-content')) {
+            const wrapper = target.closest('.tabs-wrapper');
+            if (wrapper) {
+                wrapper.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                wrapper.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                target.classList.add('active');
+                const btn = wrapper.querySelector(`[data-tab="${hash}"]`);
+                if (btn) btn.classList.add('active');
+                // Scroll to the wrapper
+                setTimeout(() => {
+                    const offset = 90;
+                    const top = wrapper.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }
+    openTabByHash();
+    window.addEventListener('hashchange', openTabByHash);
 
     // --- Smooth scroll for anchor links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
