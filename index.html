@@ -119,31 +119,54 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <h1 class="hero-title">Tvořivá škola —<br><span>Šance pro každého</span></h1>
-            <p class="hero-subtitle">Základní škola Úšovice, Mariánské Lázně<br>Školní náměstí 472/3, 353 01 Mariánské Lázně</p>
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number" data-count="565">0</div>
-                    <div class="stat-label">žáků</div>
+        <div class="container hero-split">
+
+            <!-- Left — school info -->
+            <div class="hero-left">
+                <h1 class="hero-title">Tvořivá škola —<br><span>Šance pro každého</span></h1>
+                <p class="hero-subtitle">Základní škola Úšovice, Mariánské Lázně<br>Školní náměstí 472/3, 353 01 Mariánské Lázně</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" data-count="565">0</div>
+                        <div class="stat-label">žáků</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="65">0</div>
+                        <div class="stat-label">let tradice</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="9">0</div>
+                        <div class="stat-label">ročníků</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">pedagogů</div>
+                    </div>
                 </div>
-                <div class="stat">
-                    <div class="stat-number" data-count="65">0</div>
-                    <div class="stat-label">let tradice</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" data-count="9">0</div>
-                    <div class="stat-label">ročníků</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-label">pedagogů</div>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Poznejte naši školu</a>
+                    <a href="#news" class="btn btn-outline">Aktuality</a>
                 </div>
             </div>
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">Poznejte naši školu</a>
-                <a href="#news" class="btn btn-outline">Aktuality</a>
+
+            <!-- Right — news carousel -->
+            <div class="hero-right">
+                <div class="hero-carousel" id="heroCarousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Filled by JS from news articles -->
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Předchozí">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-dots" id="carouselDots"></div>
+                        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Další">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+
         </div>
         <div class="hero-wave">
             <svg viewBox="0 0 1440 120" preserveAspectRatio="none">

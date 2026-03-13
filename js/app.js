@@ -159,6 +159,73 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderNews();
 
+    // --- Hero Carousel ---
+    function initHeroCarousel() {
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        const prevBtn = document.getElementById('carouselPrev');
+        const nextBtn = document.getElementById('carouselNext');
+        if (!track || !dotsContainer) return;
+
+        const articles = getArticles();
+        const sorted = articles.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 8);
+        if (sorted.length === 0) return;
+
+        // Build slides
+        track.innerHTML = sorted.map((article, i) => {
+            const bg = `linear-gradient(135deg, ${article.color || '#667eea'}, ${adjustColor(article.color || '#667eea', -40)})`;
+            const dateStr = new Date(article.date).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'long', year: 'numeric' });
+            return `
+                <div class="carousel-slide${i === 0 ? ' active' : ''}" style="background:${bg};" data-index="${i}">
+                    <div class="carousel-slide-image"><i class="${article.icon || 'fas fa-newspaper'}"></i></div>
+                    <div class="carousel-slide-body">
+                        <div class="carousel-slide-date">${dateStr}</div>
+                        <div class="carousel-slide-title">${escapeHtml(article.title)}</div>
+                    </div>
+                </div>`;
+        }).join('');
+
+        // Build dots
+        dotsContainer.innerHTML = sorted.map((_, i) =>
+            `<button class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Slide ${i + 1}"></button>`
+        ).join('');
+
+        let current = 0;
+        let autoTimer = null;
+        const total = sorted.length;
+        const slides = track.querySelectorAll('.carousel-slide');
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+        function goTo(idx) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = (idx + total) % total;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+        }
+
+        function startAuto() {
+            stopAuto();
+            autoTimer = setInterval(() => goTo(current + 1), 5000);
+        }
+        function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+
+        prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+        nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => { goTo(+dot.dataset.index); startAuto(); });
+        });
+
+        // Click slide → scroll to news
+        track.addEventListener('click', () => {
+            const newsSection = document.getElementById('news');
+            if (newsSection) newsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        startAuto();
+    }
+    initHeroCarousel();
+
     // --- Tabs (Družina, Jídelna) ---
     document.querySelectorAll('.tab').forEach(tab => {
         tab.addEventListener('click', function() {
