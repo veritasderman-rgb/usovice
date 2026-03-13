@@ -127,10 +127,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const dateFormatted = new Date(article.date).toLocaleDateString('cs-CZ', {
                 day: 'numeric', month: 'long', year: 'numeric'
             });
+            const imageStyle = article.image
+                ? `background-image: url('${article.image}'); background-size: cover; background-position: center;`
+                : `background: linear-gradient(135deg, ${article.color || '#667eea'}, ${adjustColor(article.color || '#667eea', -30)});`;
+            const iconOverlay = article.image ? '' : `<i class="${article.icon || 'fas fa-newspaper'}"></i>`;
             return `
                 <div class="news-card" data-id="${article.id}">
-                    <div class="news-card-image" style="background: linear-gradient(135deg, ${article.color || '#667eea'}, ${adjustColor(article.color || '#667eea', -30)});">
-                        <i class="${article.icon || 'fas fa-newspaper'}"></i>
+                    <div class="news-card-image" style="${imageStyle}">
+                        ${iconOverlay}
                     </div>
                     <div class="news-card-body">
                         <div class="news-card-date">${dateFormatted}</div>
@@ -425,11 +429,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Build slides
         track.innerHTML = sorted.map((article, i) => {
-            const bg = `linear-gradient(135deg, ${article.color || '#667eea'}, ${adjustColor(article.color || '#667eea', -40)})`;
+            const gradBg = `linear-gradient(135deg, ${article.color || '#667eea'}, ${adjustColor(article.color || '#667eea', -40)})`;
+            const bgStyle = article.image
+                ? `background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('${article.image}'); background-size: cover; background-position: center;`
+                : `background:${gradBg};`;
             const dateStr = new Date(article.date).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'long', year: 'numeric' });
+            const iconHtml = article.image ? '' : `<div class="carousel-slide-image"><i class="${article.icon || 'fas fa-newspaper'}"></i></div>`;
             return `
-                <div class="carousel-slide${i === 0 ? ' active' : ''}" style="background:${bg};" data-index="${i}">
-                    <div class="carousel-slide-image"><i class="${article.icon || 'fas fa-newspaper'}"></i></div>
+                <div class="carousel-slide${i === 0 ? ' active' : ''}" style="${bgStyle}" data-index="${i}">
+                    ${iconHtml}
                     <div class="carousel-slide-body">
                         <div class="carousel-slide-date">${dateStr}</div>
                         <div class="carousel-slide-title">${escapeHtml(article.title)}</div>

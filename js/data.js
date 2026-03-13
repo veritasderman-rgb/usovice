@@ -116,7 +116,219 @@ const DEFAULT_ARTICLES = [
         icon: "fas fa-rocket",
         color: "#fee140",
         summary: "Páťáci navštívili plzeňské science centrum a planetárium s programem „Země, Mars a 6 statečných" o cestování sluneční soustavou.",
-        content: "Žáci pátých tříd se vydali na exkurzi do science centra Techmania v Plzni. Součástí návštěvy byl program v planetáriu nazvaný „Země, Mars a 6 statečných", který interaktivně představil cestování naší sluneční soustavou."
+        content: "Žáci pátých tříd se vydali na exkurzi do science centra Techmania v Plzni. Cestu absolvovali vlakem SuperCity Pendolino, pro mnohé to byl první zážitek s tímto typem vlaku. Odjezd byl v 6:55 z hlavního nádraží.\n\nSoučástí návštěvy byl program v planetáriu nazvaný „Země, Mars a 6 statečných", který interaktivně představil cestování naší sluneční soustavou. Průvodce Jakub zaujal děti poutavým a srozumitelným vyprávěním.\n\nTechmania se nachází v historickém areálu Škodovky a nabízí stovky interaktivních exponátů, které dětem přibližují fyziku, chemii a techniku hravou formou.",
+        image: "img/skola-slide.jpg",
+        hasGallery: true
+    },
+    {
+        id: 11,
+        title: "Přípravná třída pro příští rok",
+        date: "2026-03-12",
+        category: "zapisy",
+        icon: "fas fa-child",
+        color: "#4facfe",
+        summary: "Otevíráme přípravnou třídu pro děti s odkladem školní docházky — pomůžeme jim přirozeně se adaptovat na školní prostředí.",
+        content: "Naše škola připravuje otevření přípravné třídy pro příští školní rok. Přípravná třída je určena především pro děti s odkladem školní docházky.\n\nCílem je pomoci dětem postupně a přirozeně se adaptovat na školní prostředí a rozvinout dovednosti potřebné pro úspěšný přechod do 1. třídy. Děti se naučí základní pracovní návyky, posílí svou pozornost a koncentraci, a zapojí se do kolektivu vrstevníků.\n\nV přípravné třídě pracuje kvalifikovaná pedagožka s menším počtem dětí, což umožňuje individuální přístup ke každému dítěti.\n\nPro více informací kontaktujte sekretariát školy.",
+        image: "img/pripravna-trida-2026.jpeg"
+    },
+    {
+        id: 12,
+        title: "Hodina, která se promítala kolem nás",
+        date: "2026-02-25",
+        category: "vzdelavani",
+        icon: "fas fa-globe",
+        color: "#7c3aed",
+        summary: "Pět tříd zažilo sférické kino — imerzivní 360° projekce mikroorganismů a lidského těla financované z projektu OP JAK Šablony II.",
+        content: "Pět tříd naší školy zažilo jedinečný zážitek — hodinu ve sférickém kinu. Žáci byli doslova obklopeni projekcí, která je vtáhla do světa prvoků, bakterií, řas a hub.\n\nStarší žáci se pak ponořili do tajů lidského těla. Sférické kino je nafukovací kupole, do které se promítá obraz na 360° — žáci tak mají pocit, jako by byli přímo uvnitř buňky nebo orgánu.\n\nTento zážitkový program byl financován z projektu OP JAK — Šablony II, jehož cílem je inovace vzdělávacích metod na naší škole.\n\nMgr. Lambertová, Ing. Novotná",
+        author: "Mgr. Lambertová, Ing. Novotná",
+        image: "img/icon-sfericke-kino-2026.jpg",
+        hasGallery: true
+    },
+    {
+        id: 13,
+        title: "Beseda na téma duševní zdraví adolescentů",
+        date: "2026-03-05",
+        category: "vzdelavani",
+        icon: "fas fa-brain",
+        color: "#ec4899",
+        summary: "Bezplatná beseda o duševním zdraví dospívajících v Krajské knihovně v Karlových Varech — organizuje FOKUS Karlovarský kraj.",
+        content: "Zveme rodiče a pedagogy na bezplatnou besedu o duševním zdraví dospívajících, která se koná v Krajské knihovně v Karlových Varech.\n\nOrganizátorem je FOKUS Karlovarský kraj. Kapacita je 150 míst, registrace není nutná.\n\nTéma duševního zdraví adolescentů je v dnešní době mimořádně důležité — děti čelí tlaku sociálních sítí, školním požadavkům i složitým vztahům. Beseda nabídne praktické rady pro rodiče i učitele.\n\nMgr. Jitka Míchalová",
+        author: "Mgr. Jitka Míchalová"
+    },
+    {
+        id: 14,
+        title: "Turnaj v piškvorkách",
+        date: "2026-02-12",
+        category: "druzina",
+        icon: "fas fa-chess",
+        color: "#f59e0b",
+        summary: "Šestnáct dětí ze školní družiny zápolilo v turnaji v piškvorkách. Nejlepší: Stela M. (1.), Standa R. (2.) a Artem H. (3.).",
+        content: "Ve školní družině proběhl turnaj v piškvorkách, kterého se zúčastnilo šestnáct dětí.\n\nVýsledky turnaje:\n• 1. místo: Stela M.\n• 2. místo: Standa R.\n• 3. místo: Artem H.\n\nVšichni účastníci obdrželi sladkou odměnu za svou snahu a sportovní chování. Mezi dětmi byl o účast na turnaji velký zájem.\n\nM. Mašlonková",
+        author: "M. Mašlonková"
+    },
+    {
+        id: 15,
+        title: "Turnaj Lázeňské ligy v házené",
+        date: "2026-01-28",
+        category: "sport",
+        icon: "fas fa-basketball-ball",
+        color: "#ef4444",
+        summary: "Prvňáčci soutěžili v turnaji Lázeňské ligy v házené v tělocvičně ZŠ Jih — soupeři Velká Hleďsebí, Drmoul a Lázně Kynžvart.",
+        content: "Naši prvňáčci se zúčastnili turnaje Lázeňské ligy v házené, který se konal v tělocvičně ZŠ Jih.\n\nSoupeřili s týmy z Velké Hleďsebí, Drmoulu a Lázní Kynžvart. Všechny děti obdržely účastnické diplomy a zlaté medaile za svůj sportovní výkon.\n\nDěkujeme za skvělou reprezentaci naší školy!\n\nJana Henzlová",
+        author: "Jana Henzlová"
+    },
+    {
+        id: 16,
+        title: "Dny otevřených dveří v ZŠ Úšovice",
+        date: "2026-02-03",
+        category: "akce",
+        icon: "fas fa-door-open",
+        color: "#10b981",
+        summary: "Během prvního týdne v únoru navštívilo naši školu pět mateřských škol — předškoláci si vyzkoušeli aktivity s prvňáky a vyrobili srdíčka.",
+        content: "V prvním únorovém týdnu proběhly na naší škole Dny otevřených dveří. Navštívilo nás pět mateřských škol z okolí.\n\nPředškoláci si prohlédli učebny, zúčastnili se aktivit společně s prvňáky a navštívili workshopy zaměřené na hudbu, tanec, pohyb a tvoření. Děti vyrobily srdíčka pro projekt „Srdce s láskou darované".\n\nPrvňáčci předvedli, co se za pět měsíců ve škole naučili, a budoucí žáci si tak mohli udělat představu o tom, co je ve škole čeká.\n\nAkce pomáhá předškolákům překonat strach z nového prostředí a usnadňuje přechod do základní školy."
+    },
+    {
+        id: 17,
+        title: "Karneval s panem Pohodou a Soničkou",
+        date: "2026-02-09",
+        category: "druzina",
+        icon: "fas fa-mask",
+        color: "#8b5cf6",
+        summary: "Karneval ve školní družině s panem Pohodou a netradiční pohádkou o kozách a recyklaci — tanec, tombola a sladké odměny.",
+        content: "V neděli 9. února proběhl v naší školní družině tradiční karneval. Hlavní postavou byl „pan Pohoda", který dětem představil netradiční pohádku o kozách a recyklaci.\n\nProgram zahrnoval tanec, tombolu a spoustu zábavy. Všechny děti obdržely sladkou odměnu a užily si bezstarostné odpoledne plné smíchu.\n\nM. Mašlonková",
+        author: "M. Mašlonková"
+    },
+    {
+        id: 18,
+        title: "ZOH ve školní družině",
+        date: "2026-02-15",
+        category: "druzina",
+        icon: "fas fa-snowflake",
+        color: "#06b6d4",
+        summary: "Každé oddělení družiny vytvořilo krásnou koláž s olympijskou tématikou — zimní sporty, medaile a olympijské kruhy.",
+        content: "Zimní olympijské hry se promítly i do aktivit naší školní družiny. Každé oddělení vyrobilo krásnou koláž s olympijskou tématikou.\n\nDěti si vyzkoušely různé výtvarné techniky — koláže zachycovaly zimní sporty, medaile a olympijské kruhy. Výsledné práce zdobí prostory školní družiny a připomínají sportovní ducha olympiád.\n\nM. Mašlonková",
+        author: "M. Mašlonková",
+        image: "img/icon-zoh-2026.jpg",
+        hasGallery: true
+    },
+    {
+        id: 19,
+        title: "Jak fungují ledviny",
+        date: "2026-02-18",
+        category: "vzdelavani",
+        icon: "fas fa-heartbeat",
+        color: "#f43f5e",
+        summary: "Osmáci zkoumali funkci ledvin a vylučovací soustavy — praktické pokusy s modely a simulace filtrace.",
+        content: "Žáci osmých ročníků se v rámci přírodopisu ponořili do studia funkce ledvin a vylučovací soustavy.\n\nPomocí modelů ledvin a simulací filtrace si prakticky vyzkoušeli, jak probíhá čištění krve v našem těle. Teorie se tak proměnila v praktickou zkušenost, která žákům pomáhá lépe pochopit složité biologické procesy.\n\nMgr. Lambertová",
+        author: "Mgr. Lambertová"
+    },
+    {
+        id: 20,
+        title: "Vítězství v okresním kole dějepisné olympiády",
+        date: "2026-01-14",
+        category: "soutez",
+        icon: "fas fa-trophy",
+        color: "#eab308",
+        summary: "Roman Šulc zvítězil v okresním kole dějepisné olympiády mezi 28 účastníky — první medailové umístění školy po několika letech.",
+        content: "Roman Šulc obsadil 1. místo v okresním kole dějepisné olympiády, kde soutěžilo 28 účastníků z celého okresu.\n\nRoman nás nesmírně potěšil, protože již několik let se nám nedařilo umístit se na medailových pozicích. Další naši žáci obsadili 6. a 13. místo.\n\nGratulujeme Romanovi k výbornému výsledku a přejeme mnoho úspěchů v krajském kole!\n\nMgr. Dana Čížková",
+        author: "Mgr. Dana Čížková"
+    },
+    {
+        id: 21,
+        title: "Turnaj ve stolním fotbale",
+        date: "2026-01-20",
+        category: "druzina",
+        icon: "fas fa-futbol",
+        color: "#22c55e",
+        summary: "Turnaj ve stolním fotbale ve školní družině s vánočním stolním fotbálkem — velký zájem dětí, vítězové obdrželi ceny.",
+        content: "Ve školní družině proběhl turnaj ve stolním fotbale na novém stolním fotbálku, který děti dostaly jako vánoční dárek.\n\nMezi dětmi byl o účast na turnaji velký zájem. Vítězové obdrželi ceny a ti, kteří nesoutěžili, se ujali role rozhodčích.\n\nMiloslava Kločurková",
+        author: "Miloslava Kločurková"
+    },
+    {
+        id: 22,
+        title: "Ladovská zima v trolejbusech",
+        date: "2026-01-10",
+        category: "projekt",
+        icon: "fas fa-paint-brush",
+        color: "#a855f7",
+        summary: "Děti vyzdobily trolejbusy města Mariánské Lázně zimními obrázky — jedna ilustrace vznikla za použití kurkumy.",
+        content: "Naše děti vyzdobily trolejbusy města Mariánské Lázně krásnými zimními obrázky v duchu Josefa Lady.\n\nJedna z ilustrací dokonce vznikla za použití kurkumy, což přidalo kresbě zvláštní teplý nádech. Výtvarná díla zachycovala zasněženou atmosféru Mariánských Lázní a potěšila cestující v městské hromadné dopravě.\n\nZdeňka Matějková",
+        author: "Zdeňka Matějková"
+    },
+    {
+        id: 23,
+        title: "Přijímací zkouška nanečisto",
+        date: "2026-01-22",
+        category: "vzdelavani",
+        icon: "fas fa-file-alt",
+        color: "#64748b",
+        summary: "Všech 88 deváťáků absolvovalo přijímací zkoušky nanečisto — simulace reálných podmínek včetně časového stresu.",
+        content: "Všech 88 žáků devátých ročníků absolvovalo přijímací zkoušky nanečisto na naší škole.\n\nSimulace věrně napodobila reálné podmínky přijímacích zkoušek na střední školy — včetně časového limitu a stresových faktorů. Škola touto aktivitou podpořila rovné podmínky pro všechny žáky.\n\nTesty byly poskytnuty zdarma Centrem pro zjišťování výsledků vzdělávání (CERMAT). Žáci si tak mohli ověřit svou připravenost a identifikovat oblasti, na které se potřebují zaměřit."
+    },
+    {
+        id: 24,
+        title: "Expedice Krakonoš",
+        date: "2026-01-08",
+        category: "akce",
+        icon: "fas fa-mountain",
+        color: "#0d9488",
+        summary: "Druháci absolvovali 8km zimní túru při minus 9 °C inspirovanou Krkonošskými pohádkami.",
+        content: "Žáci druhé třídy absolvovali osmikilometrovou zimní túru v mrazivém počasí, kdy teploty klesly až na minus 9 stupňů Celsia.\n\nExkurze byla inspirována Krkonošskými pohádkami, které děti probíraly během lednového čtení. Žáci prokázali velkou vytrvalost a nadšení navzdory náročným podmínkám.\n\nVšichni zdárně dorazili do cíle a odnesli si nezapomenutelný zážitek ze zimní přírody."
+    },
+    {
+        id: 25,
+        title: "Ukliďme Česko — Den Země 2026",
+        date: "2026-04-17",
+        category: "ekologie",
+        icon: "fas fa-leaf",
+        color: "#16a34a",
+        summary: "Každoroční akce Ukliďme Česko proběhne 17. dubna v 10:00 — společně vyčistíme okolí školy a velkou část města.",
+        content: "Zveme všechny žáky, rodiče i veřejnost na tradiční akci Ukliďme Česko, která se uskuteční 17. dubna 2026 v 10:00.\n\nSpolečně pak vyčistíme poměrně velkou část našeho krásného města. V rámci celorepublikové akce dobrovolníci odstraňují nelegálně odhozený odpad z přírody.\n\nSraz je u hlavního vchodu školy. S sebou si vezměte vhodné oblečení a rukavice — pytle a další vybavení zajistí škola.",
+        image: "img/uklidme-slide.PNG"
+    },
+    {
+        id: 26,
+        title: "Masopust — rej masek 2026",
+        date: "2026-02-28",
+        category: "akce",
+        icon: "fas fa-theater-masks",
+        color: "#d946ef",
+        summary: "Tradiční masopustní rej masek proběhl na naší škole — žáci i učitelé předvedli kreativní kostýmy.",
+        content: "Na konci února proběhl na naší škole tradiční masopustní rej masek. Žáci i učitelé se předvedli v kreativních kostýmech.\n\nAkcí provázela živá hudba, tanec a spousta zábavy. Masopust je jednou z nejoblíbenějších tradic naší školy a každoročně přináší do školních chodeb jedinečnou atmosféru.",
+        image: "img/slide-masopust-2026.jpg",
+        hasGallery: true
+    },
+    {
+        id: 27,
+        title: "Jen krok k barevné pohádce",
+        date: "2026-01-30",
+        category: "druzina",
+        icon: "fas fa-palette",
+        color: "#f472b6",
+        summary: "Soutěž pro děti z 1. tříd a přípravné třídy — ilustrace pohádek. Šestnáct dětí obsadilo první tři místa.",
+        content: "Ve školní družině proběhla výtvarná soutěž pro děti z prvních tříd a přípravné třídy s názvem „Jen krok k barevné pohádce".\n\nDěti malovaly ilustrace ke svým oblíbeným pohádkám. Z šestnácti soutěžících všichni obsadili první tři místa a odnesli si pěkné ceny a sladkosti.\n\nM. Mašlonková",
+        author: "M. Mašlonková"
+    },
+    {
+        id: 28,
+        title: "Soutěž — Sněhulák",
+        date: "2026-01-05",
+        category: "druzina",
+        icon: "fas fa-snowman",
+        color: "#38bdf8",
+        summary: "Nejmladší oddělení soutěžilo v kreslení sněhuláka na rychlost — po soutěži děti stavěly skutečné sněhuláky venku.",
+        content: "Nejmladší oddělení školní družiny se zúčastnilo soutěže v kreslení sněhuláka na rychlost. Děti házely kostkou a podle výsledku kreslily jednotlivé části sněhulákova těla.\n\nSoutěž kombinovala prvky štěstí a koordinace. Po soutěži využily příhodného počasí a vyrazily ven stavět skutečné sněhuláky.\n\nIvana Průchová a Jana Henzlová",
+        author: "Ivana Průchová, Jana Henzlová"
+    },
+    {
+        id: 29,
+        title: "Biologická olympiáda — Tajemný život lesů",
+        date: "2026-01-25",
+        category: "soutez",
+        icon: "fas fa-tree",
+        color: "#059669",
+        summary: "Školní kolo 60. ročníku Biologické olympiády s tématem „Tajemný život lesů" — les jako složitý biom měnící se miliony let.",
+        content: "Na naší škole proběhlo školní kolo 60. ročníku Biologické olympiády s tématem „Tajemný život lesů".\n\nLes je velmi složitý biom, který se mění s klimatem planety. Během milionů let se typy lesů posunuly a změnily v závislosti na podmínkách prostředí.\n\nŽáci si ověřili své znalosti z botaniky, zoologie i ekologie lesa. Nejúspěšnější postupují do okresního kola."
     }
 ];
 
@@ -126,7 +338,7 @@ const DEFAULT_CONTENT = {
         title: 'Tvořivá škola —<br><span>Šance pro každého</span>',
         subtitle: 'Základní škola Úšovice, Mariánské Lázně<br>Školní náměstí 472/3, 353 01 Mariánské Lázně',
         stats: [
-            { count: 565, label: 'žáků' },
+            { count: 550, label: 'žáků' },
             { count: 65, label: 'let tradice' },
             { count: 9, label: 'ročníků' },
             { count: 50, label: 'pedagogů' }
