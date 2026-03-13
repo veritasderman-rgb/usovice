@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZŠ Úšovice – Základní škola Úšovice, Mariánské Lázně</title>
+    <meta name="description" content="Základní škola Úšovice, Mariánské Lázně, Školní náměstí 472 – Tvořivá škola, šance pro každého.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone"></i> +420 354 624 654</span>
+                <span><i class="fas fa-envelope"></i> sekretariat@zsusovice.cz</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://bakalari.zsusovice.cz" target="_blank" title="Bakaláři"><i class="fas fa-graduation-cap"></i> Bakaláři</a>
+                <a href="https://strava.cz" target="_blank" title="Jídelníček"><i class="fas fa-utensils"></i> Strava.cz</a>
+                <a href="admin.html" title="Administrace"><i class="fas fa-lock"></i> Admin</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">ZŠ</div>
+                <div class="logo-text">
+                    <strong>Základní škola Úšovice</strong>
+                    <small>Mariánské Lázně</small>
+                </div>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#about" class="nav-link">O škole</a>
+                <a href="#news" class="nav-link">Aktuality</a>
+                <a href="#druzina" class="nav-link">Družina</a>
+                <a href="#jidelna" class="nav-link">Jídelna</a>
+                <a href="#documents" class="nav-link">Dokumenty</a>
+                <a href="#staff" class="nav-link">Kontakty</a>
+                <a href="#gallery" class="nav-link">Galerie</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Tvořivá škola —<br><span>Šance pro každého</span></h1>
+            <p class="hero-subtitle">Základní škola Úšovice, Mariánské Lázně<br>Školní náměstí 472/3, 353 01 Mariánské Lázně</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number" data-count="565">0</div>
+                    <div class="stat-label">žáků</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="65">0</div>
+                    <div class="stat-label">let tradice</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="9">0</div>
+                    <div class="stat-label">ročníků</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">pedagogů</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Poznejte naši školu</a>
+                <a href="#news" class="btn btn-outline">Aktuality</a>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-links-grid">
+                <a href="https://bakalari.zsusovice.cz" target="_blank" class="quick-card">
+                    <div class="quick-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Bakaláři</h3>
+                    <p>Elektronická žákovská knížka, známky, rozvrh a komunikace se školou</p>
+                </a>
+                <a href="#jidelna" class="quick-card">
+                    <div class="quick-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Školní jídelna</h3>
+                    <p>Jídelníček, přihlášky ke stravování, alergeny a odhlašování obědů</p>
+                </a>
+                <a href="#druzina" class="quick-card">
+                    <div class="quick-icon"><i class="fas fa-children"></i></div>
+                    <h3>Školní družina</h3>
+                    <p>Provozní doba, kroužky, pravidla a kontakt na vychovatelky</p>
+                </a>
+                <a href="#documents" class="quick-card">
+                    <div class="quick-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Úřední deska</h3>
+                    <p>Dokumenty ke stažení, školní řád, výroční zprávy</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>O naší škole</h2>
+                <p>Prostředí, kde se žáci s různými vzdělávacími potřebami cítí bezpečně a spokojeně</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text" id="about-content">
+                    <p>Základní škola Úšovice je úplná základní škola s 1.–9. ročníkem, která vzdělává více než <strong>565 žáků</strong>. Na prvním stupni jsou zpravidla tři paralelní třídy, na druhém stupni dvě až čtyři třídy v ročníku. Od školního roku 2020/21 funguje i přípravná třída.</p>
+                    <p>Škola se věnuje žákům nadaným, žákům se speciálními vzdělávacími potřebami i žákům cizincům. Vzdělávací program nese název <strong>„Tvořivá škola — Šance pro každého"</strong> a integruje evropské vzdělávací trendy zaměřené na rozvoj kompetencí pro 21. století.</p>
+                    <p>Disponujeme renovovanými dílnami, novými odbornými učebnami chemie, fyziky a přírodních věd, dvěma počítačovými učebnami a řadou mobilních zařízení — notebooky, Chromebooky, tablety, VR headsety a interaktivní Vex roboty.</p>
+                    <p><strong>Zřizovatel:</strong> Město Mariánské Lázně, Ruská 155/3, 353 30 Mariánské Lázně</p>
+                    <p><strong>IČO:</strong> 70997543 &nbsp;|&nbsp; <strong>Datová schránka:</strong> wkkmpmx</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <i class="fas fa-flask"></i>
+                        <h4>Odborné učebny</h4>
+                        <p>Chemie, fyzika, přírodní vědy s moderním vybavením</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>IT vybavení</h4>
+                        <p>2 počítačové učebny, notebooky, Chromebooky, tablety</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-vr-cardboard"></i>
+                        <h4>VR & Robotika</h4>
+                        <p>VR headsety a interaktivní Vex roboty pro výuku</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tools"></i>
+                        <h4>Dílny</h4>
+                        <p>Kompletně renovované školní dílny</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Žákovský parlament</h4>
+                        <p>Aktivní studentská samospráva</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Poradenství</h4>
+                        <p>Školní poradenské pracoviště, výchovný poradce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="section section-alt" id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <h2>Vedení školy</h2>
+                <p>Kvalifikovaný tým řídící chod školy</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>Mgr. Zdeněk Třešňák</h3>
+                    <p class="leader-role">Ředitel školy</p>
+                    <p><i class="fas fa-envelope"></i> reditel@zsusovice.cz</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-avatar"><i class="fas fa-user"></i></div>
+                    <h3>Mgr. Jan Matějovský</h3>
+                    <p class="leader-role">Zástupce ředitele</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-avatar"><i class="fas fa-user"></i></div>
+                    <h3>Mgr. Vlasta Matysová</h3>
+                    <p class="leader-role">Zástupkyně ředitele</p>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-avatar"><i class="fas fa-laptop"></i></div>
+                    <h3>Jana Záhorová</h3>
+                    <p class="leader-role">ICT koordinátorka</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>Aktuality</h2>
+                <p>Novinky a události z naší školy</p>
+            </div>
+            <div class="news-grid" id="news-grid">
+                <!-- Articles loaded dynamically from JS/localStorage -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Banner -->
+    <section class="banner" id="enrollment">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2><i class="fas fa-pencil-alt"></i> Zápis do 1. tříd 2026/2027</h2>
+                    <p>Výsledky zápisu byly zveřejněny. Všichni uchazeči byli přijati s výjimkou jednoho nezletilého žadatele (RQ056). Anonymizovaný seznam přijatých žáků je k dispozici na úřední desce.</p>
+                </div>
+                <a href="#documents" class="btn btn-primary">Více informací</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Školní družina -->
+    <section class="section section-alt" id="druzina">
+        <div class="container">
+            <div class="section-header">
+                <h2>Školní družina</h2>
+                <p>Bezpečné a tvůrčí zázemí pro vaše děti</p>
+            </div>
+            <div class="druzina-grid">
+                <div class="druzina-info" id="druzina-content">
+                    <div class="info-block">
+                        <h3><i class="fas fa-clock"></i> Provozní doba</h3>
+                        <ul>
+                            <li><strong>Ranní:</strong> 6:00 – 8:00</li>
+                            <li><strong>Odpolední:</strong> 11:40 – 16:45</li>
+                            <li><strong>Zájmové kroužky:</strong> 15:00 – 16:00 (říjen–květen)</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-money-bill"></i> Poplatky</h3>
+                        <ul>
+                            <li>300 Kč / měsíc</li>
+                            <li>Září–leden: 1 500 Kč (splatné do 31. 10.)</li>
+                            <li>Únor–červen: 1 500 Kč (splatné do 28. 2.)</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-child"></i> Vyzvedávání dětí</h3>
+                        <p>Děti lze vyzvednout <strong>do 13:30</strong> a poté <strong>od 15:00</strong>. Žáci dojíždějící autobusem odcházejí ve 13:45. Na SMS a volání děti z bezpečnostních důvodů nepouštíme — je nutný písemný souhlas rodičů.</p>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-palette"></i> Kroužky</h3>
+                        <ul>
+                            <li>Tvořivé ručičky</li>
+                            <li>Kreativní hry</li>
+                            <li>Sportovní hry</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="druzina-contact">
+                    <div class="contact-card-large">
+                        <h3>Kontakt na družinu</h3>
+                        <p><i class="fas fa-phone"></i> +420 354 625 634</p>
+                        <p><i class="fas fa-envelope"></i> druzina@zsusovice.cz</p>
+                        <hr>
+                        <h4>Vychovatelky</h4>
+                        <p><strong>Vedoucí:</strong> Marcela Mašlonková</p>
+                        <p>Miloslava Kločurková</p>
+                        <p>Ivana Průchová</p>
+                        <hr>
+                        <p class="note"><i class="fas fa-info-circle"></i> Nepřítomnost hlaste e-mailem na druzina@zsusovice.cz do 11:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Školní jídelna -->
+    <section class="section" id="jidelna">
+        <div class="container">
+            <div class="section-header">
+                <h2>Školní jídelna</h2>
+                <p>Kvalitní stravování pro žáky a zaměstnance</p>
+            </div>
+            <div class="jidelna-grid" id="jidelna-content">
+                <div class="jidelna-card">
+                    <div class="jidelna-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Jídelníček</h3>
+                    <p>Aktuální jídelníček je dostupný v aplikaci <strong>Strava.cz</strong>. Přihlaste se pro zobrazení a správu obědů.</p>
+                    <a href="https://strava.cz" target="_blank" class="btn btn-small">Otevřít Strava.cz</a>
+                </div>
+                <div class="jidelna-card">
+                    <div class="jidelna-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Přihláška ke stravování</h3>
+                    <p>Formulář přihlášky ke stravování si můžete stáhnout a vyplněný odevzdat v kanceláři jídelny.</p>
+                    <a href="#documents" class="btn btn-small">Ke stažení</a>
+                </div>
+                <div class="jidelna-card">
+                    <div class="jidelna-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>Alergeny</h3>
+                    <p>Informace o alergenech jsou uvedeny u každého jídla v jídelníčku. V případě dotazů kontaktujte jídelnu.</p>
+                </div>
+                <div class="jidelna-card">
+                    <div class="jidelna-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Kontakt na jídelnu</h3>
+                    <p><strong>Tel:</strong> +420 354 623 557</p>
+                    <p>Odhlašování obědů je možné den předem do 14:00.</p>
+                </div>
+            </div>
+            <div class="jidelna-highlight">
+                <div class="highlight-inner">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <h4>Březnový výběr jídla</h4>
+                        <p>Žáci a rodiče hlasovali o speciální březnové jídlo — zvítězil <strong>„Steak s pepřovou omáčkou"</strong>!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents / Úřední deska -->
+    <section class="section section-alt" id="documents">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dokumenty a úřední deska</h2>
+                <p>Důležité dokumenty ke stažení a školní řád</p>
+            </div>
+            <div class="documents-grid" id="documents-content">
+                <div class="doc-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Školní řád</h3>
+                    <p>Pravidla chování a povinnosti žáků</p>
+                </div>
+                <div class="doc-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Výroční zprávy</h3>
+                    <p>Roční hodnocení činnosti školy</p>
+                </div>
+                <div class="doc-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Měsíční a roční plány</h3>
+                    <p>Plánované akce a organizace školního roku</p>
+                </div>
+                <div class="doc-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Omlouvání žáků</h3>
+                    <p>Postup při omlouvání nepřítomnosti</p>
+                </div>
+                <div class="doc-card">
+                    <i class="fas fa-table"></i>
+                    <h3>Rozvrhy</h3>
+                    <p>Aktuální rozvrhy hodin všech tříd</p>
+                </div>
+                <div class="doc-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Zkratky předmětů</h3>
+                    <p>Přehled zkratek v rozvrhu hodin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projekty</h2>
+                <p>Podpora z EU a národních programů</p>
+            </div>
+            <div class="projects-grid" id="projects-content">
+                <div class="project-card">
+                    <div class="project-badge">EU</div>
+                    <h3>OP JAK Šablony II</h3>
+                    <p>Projekt financovaný z Operačního programu Jan Amos Komenský zaměřený na inovace ve výuce, včetně sférického kina a moderních vzdělávacích metod.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">EU</div>
+                    <h3>OP JAK Šablony III</h3>
+                    <p>Pokračování projektové podpory pro zvyšování kvality vzdělávání a digitalizaci výuky.</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-badge">NPO</div>
+                    <h3>Národní plán obnovy</h3>
+                    <p>Digitalizace vzdělávání — podpora ICT vybavení školy a rozvoj digitálních kompetencí žáků i pedagogů.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff / Contacts -->
+    <section class="section section-alt" id="staff">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kontakty na pracovníky</h2>
+                <p>Pedagogický sbor naší školy</p>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="contact-grid">
+                <div class="contact-main-card">
+                    <h3><i class="fas fa-school"></i> Škola</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Školní náměstí 472/3, 353 01 Mariánské Lázně</p>
+                    <p><i class="fas fa-phone"></i> +420 354 624 654</p>
+                    <p><i class="fas fa-mobile-alt"></i> +420 773 589 635</p>
+                    <p><i class="fas fa-envelope"></i> sekretariat@zsusovice.cz</p>
+                    <p><i class="fas fa-inbox"></i> Datová schránka: wkkmpmx</p>
+                    <p><i class="fas fa-university"></i> Účet: 115-4310390217/0100 (KB)</p>
+                </div>
+                <div class="contact-main-card">
+                    <h3><i class="fas fa-utensils"></i> Jídelna</h3>
+                    <p><i class="fas fa-phone"></i> +420 354 623 557</p>
+                </div>
+                <div class="contact-main-card">
+                    <h3><i class="fas fa-children"></i> Družina</h3>
+                    <p><i class="fas fa-phone"></i> +420 354 625 634</p>
+                    <p><i class="fas fa-envelope"></i> druzina@zsusovice.cz</p>
+                </div>
+                <div class="contact-main-card">
+                    <h3><i class="fas fa-building"></i> Odloučené pracoviště</h3>
+                    <p><i class="fas fa-phone"></i> +420 354 622 860</p>
+                </div>
+            </div>
+
+            <!-- Staff Tables -->
+            <div class="staff-section">
+                <h3 class="staff-heading" data-toggle="staff-primary">
+                    <i class="fas fa-chevron-down"></i> Učitelé I. stupně
+                </h3>
+                <div class="staff-table-wrapper" id="staff-primary">
+                    <table class="staff-table">
+                        <thead><tr><th>Jméno</th><th>Třída</th><th>E-mail</th></tr></thead>
+                        <tbody>
+                            <tr><td>Mgr., Bc. Madejová Ludmila, DiS.</td><td>1.A</td><td>madejova.ludmila@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Vithová Hana</td><td>1.B</td><td>vithova.hana@zsusovice.cz</td></tr>
+                            <tr><td>Fontánová Kamila</td><td>Přípravná třída</td><td>fontanova.kamila@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Wenzlová Jana</td><td>2.A</td><td>wenzlova.jana@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Sahánková Jana</td><td>2.B</td><td>sahankova.jana@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Nápravníková Jana</td><td>3.A</td><td>napravnikova.jana@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Pecherová Michaela</td><td>3.B</td><td>pecherova.michaela@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Ležatková Ludmila</td><td>4.A</td><td>lezatkova.ludmila@zsusovice.cz</td></tr>
+                            <tr><td>MgA. Balážová Petra</td><td>4.B</td><td>balazova.petra@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Schneiderwinklová Miloslava</td><td>5.A</td><td>schneiderwinklova.miloslava@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Matějková Zdeňka</td><td>5.B</td><td>matejkova.zdenka@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Kozicová Kávová Helena</td><td>5.C</td><td>kozicova.helena@zsusovice.cz</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="staff-heading" data-toggle="staff-secondary">
+                    <i class="fas fa-chevron-down"></i> Učitelé II. stupně
+                </h3>
+                <div class="staff-table-wrapper" id="staff-secondary">
+                    <table class="staff-table">
+                        <thead><tr><th>Jméno</th><th>Třída</th><th>Předměty</th><th>E-mail</th></tr></thead>
+                        <tbody>
+                            <tr><td>Baťko Lukáš</td><td>8.A / 9.A</td><td>TV, M, F, IT</td><td>batko.lukas@zsusovice.cz</td></tr>
+                            <tr><td>Ing. Tyllerová Jarmila</td><td>8.B</td><td>M, TV, poradenství</td><td>tyllerova.jarmila@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Jelínková Ivona</td><td>9.A</td><td>AJ, ČJ, TV</td><td>jelinkova.ivona@zsusovice.cz</td></tr>
+                            <tr><td>Mgr. Prokopová Věra</td><td>9.B</td><td>ČJ, AJ, poradenství</td><td>prokopova.vera@zsusovice.cz</td></tr>
+                            <tr><td>Hejret Vítězslav</td><td>9.C / 9.D</td><td>TV, D, poradenství</td><td>hejret.vitezslav@zsusovice.cz</td></tr>
+                            <tr><td>RNDr. Tenglerová Helena</td><td>7.C / 9.D</td><td>M</td><td>tenglerova.helena@zsusovice.cz</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="staff-heading" data-toggle="staff-assistants">
+                    <i class="fas fa-chevron-down"></i> Asistenti pedagoga
+                </h3>
+                <div class="staff-table-wrapper" id="staff-assistants">
+                    <table class="staff-table">
+                        <thead><tr><th>Jméno</th><th>Třída</th><th>E-mail</th></tr></thead>
+                        <tbody>
+                            <tr><td>Chlupáčová Michaela</td><td>5.C</td><td>chlupacova.michaela@zsusovice.cz</td></tr>
+                            <tr><td>Mašáková Gabriela</td><td>7.A</td><td>mascakova.gabriela@zsusovice.cz</td></tr>
+                            <tr><td>Mašáková Pavlína</td><td>Více tříd</td><td>mascakova.pavlina@zsusovice.cz</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="staff-heading" data-toggle="staff-druzina">
+                    <i class="fas fa-chevron-down"></i> Školní družina
+                </h3>
+                <div class="staff-table-wrapper" id="staff-druzina">
+                    <table class="staff-table">
+                        <thead><tr><th>Jméno</th><th>Pozice</th><th>E-mail</th></tr></thead>
+                        <tbody>
+                            <tr><td>Mašlonková Marcela</td><td>Vedoucí vychovatelka</td><td>maslonkova.marcela@zsusovice.cz</td></tr>
+                            <tr><td>Průchová Ivana</td><td>Vychovatelka</td><td>pruchova.ivana@zsusovice.cz</td></tr>
+                            <tr><td>Kločurková Miloslava</td><td>Vychovatelka</td><td>klucurkova.miloslava@zsusovice.cz</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Placeholder -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fotogalerie</h2>
+                <p>Momenty z akcí a života naší školy</p>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Placeholder gallery items — can be managed via admin -->
+                <div class="gallery-item" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <div class="gallery-overlay">
+                        <h4>VR PROFILAB</h4>
+                        <p>Profesní orientace s VR technologií</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <div class="gallery-overlay">
+                        <h4>Zimní olympiáda</h4>
+                        <p>Projektový den 5. tříd</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <div class="gallery-overlay">
+                        <h4>Techmania Plzeň</h4>
+                        <p>Exkurze do science centra</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <div class="gallery-overlay">
+                        <h4>Den Země</h4>
+                        <p>Ekologické aktivity</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <div class="gallery-overlay">
+                        <h4>AJ nás baví</h4>
+                        <p>Soutěž v anglickém jazyce</p>
+                    </div>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+                    <div class="gallery-overlay">
+                        <h4>Sférické kino</h4>
+                        <p>360° projekce mikroorganismů</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco / Recyklohraní -->
+    <section class="section section-alt" id="eco">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2><i class="fas fa-recycle"></i> Recyklohraní 2026</h2>
+                    <p>Naše škola se aktivně zapojuje do programu sběru baterií Recyklohraní. Plánovaný Den Země proběhne <strong>17. dubna 2026 v 10:00</strong> — úklid okolí školy a ekologické aktivity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ukrainian info -->
+    <section class="section" id="ukraine">
+        <div class="container">
+            <div class="ukraine-banner">
+                <div class="ukraine-flag"></div>
+                <div>
+                    <h3>Інформація для батьків з України</h3>
+                    <p>Naše škola přijímá žáky-cizince. Pro více informací o zápisu kontaktujte sekretariát školy na <strong>sekretariat@zsusovice.cz</strong> nebo <strong>+420 354 624 654</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Základní škola Úšovice</h4>
+                    <p>Školní náměstí 472/3<br>353 01 Mariánské Lázně</p>
+                    <p><i class="fas fa-phone"></i> +420 354 624 654</p>
+                    <p><i class="fas fa-envelope"></i> sekretariat@zsusovice.cz</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Rychlé odkazy</h4>
+                    <ul>
+                        <li><a href="#about">O škole</a></li>
+                        <li><a href="#news">Aktuality</a></li>
+                        <li><a href="#druzina">Školní družina</a></li>
+                        <li><a href="#jidelna">Školní jídelna</a></li>
+                        <li><a href="#documents">Dokumenty</a></li>
+                        <li><a href="#staff">Kontakty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Důležité odkazy</h4>
+                    <ul>
+                        <li><a href="https://bakalari.zsusovice.cz" target="_blank">Bakaláři</a></li>
+                        <li><a href="https://strava.cz" target="_blank">Strava.cz — Jídelníček</a></li>
+                        <li><a href="#documents">Školní řád</a></li>
+                        <li><a href="#documents">Výroční zprávy</a></li>
+                        <li><a href="admin.html">Administrace webu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Projekty a partneři</h4>
+                    <p class="footer-partners">
+                        <span class="partner-badge">OP JAK Šablony II</span>
+                        <span class="partner-badge">OP JAK Šablony III</span>
+                        <span class="partner-badge">Národní plán obnovy</span>
+                        <span class="partner-badge">Recyklohraní</span>
+                        <span class="partner-badge">Město Mariánské Lázně</span>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Základní škola Úšovice, Mariánské Lázně. Všechna práva vyhrazena.</p>
+                <p><a href="#" id="accessibility-link">Prohlášení o přístupnosti</a> | <a href="admin.html">Správa webu</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Nahoru">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

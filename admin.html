@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrace — ZŠ Úšovice</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="login-icon">ZŠ</div>
+                <h1>Administrace webu</h1>
+                <p>Základní škola Úšovice</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Uživatelské jméno</label>
+                    <input type="text" id="loginUser" placeholder="admin" required>
+                </div>
+                <div class="form-group">
+                    <label>Heslo</label>
+                    <input type="password" id="loginPass" placeholder="Zadejte heslo" required>
+                </div>
+                <div class="login-error" id="loginError" style="display:none;">
+                    Nesprávné přihlašovací údaje.
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Přihlásit se
+                </button>
+            </form>
+            <p class="login-hint">Výchozí přihlášení: admin / skola2026</p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-app" id="adminApp" style="display:none;">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">ZŠ</div>
+                <span>Admin Panel</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Přehled
+                </a>
+                <a href="#" class="sidebar-link" data-section="articles">
+                    <i class="fas fa-newspaper"></i> Články
+                </a>
+                <a href="#" class="sidebar-link" data-section="pages">
+                    <i class="fas fa-file-alt"></i> Stránky
+                </a>
+                <a href="#" class="sidebar-link" data-section="gallery">
+                    <i class="fas fa-images"></i> Galerie
+                </a>
+                <a href="#" class="sidebar-link" data-section="contacts">
+                    <i class="fas fa-address-book"></i> Kontakty
+                </a>
+                <a href="#" class="sidebar-link" data-section="settings">
+                    <i class="fas fa-cog"></i> Nastavení
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" target="_blank"><i class="fas fa-external-link-alt"></i> Zobrazit web</a>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Odhlásit se</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Top Bar -->
+            <div class="admin-topbar">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h2 id="pageTitle">Přehled</h2>
+                <div class="admin-user">
+                    <i class="fas fa-user-circle"></i> Admin
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div class="admin-section active" id="section-dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:#eff6ff;color:#2563eb;">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <div class="stat-card-number" id="statArticles">0</div>
+                            <div class="stat-card-label">Článků</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:#f0fdf4;color:#16a34a;">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <div class="stat-card-number">565</div>
+                            <div class="stat-card-label">Žáků</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:#fefce8;color:#ca8a04;">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div>
+                            <div class="stat-card-number">50+</div>
+                            <div class="stat-card-label">Pedagogů</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon" style="background:#fdf2f8;color:#db2777;">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div>
+                            <div class="stat-card-number">6</div>
+                            <div class="stat-card-label">Galerií</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Poslední články</h3>
+                            <a href="#" class="sidebar-link" data-section="articles">Zobrazit vše</a>
+                        </div>
+                        <div id="recentArticles"></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Rychlé akce</h3>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn" data-action="new-article">
+                                <i class="fas fa-plus"></i> Nový článek
+                            </button>
+                            <button class="action-btn" data-action="edit-about">
+                                <i class="fas fa-edit"></i> Upravit „O škole"
+                            </button>
+                            <button class="action-btn" data-action="edit-druzina">
+                                <i class="fas fa-child"></i> Upravit Družinu
+                            </button>
+                            <button class="action-btn" data-action="edit-jidelna">
+                                <i class="fas fa-utensils"></i> Upravit Jídelnu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Articles Section -->
+            <div class="admin-section" id="section-articles">
+                <div class="section-toolbar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="articleSearch" placeholder="Hledat články...">
+                    </div>
+                    <button class="btn btn-primary" id="newArticleBtn">
+                        <i class="fas fa-plus"></i> Nový článek
+                    </button>
+                </div>
+                <div class="articles-list" id="articlesList"></div>
+            </div>
+
+            <!-- Article Editor -->
+            <div class="admin-section" id="section-article-editor" style="display:none;">
+                <div class="editor-header">
+                    <button class="btn btn-ghost" id="backToArticles">
+                        <i class="fas fa-arrow-left"></i> Zpět na články
+                    </button>
+                    <div>
+                        <button class="btn btn-outline-sm" id="previewArticle">
+                            <i class="fas fa-eye"></i> Náhled
+                        </button>
+                        <button class="btn btn-primary" id="saveArticle">
+                            <i class="fas fa-save"></i> Uložit
+                        </button>
+                    </div>
+                </div>
+                <form id="articleForm" class="editor-form">
+                    <input type="hidden" id="articleId">
+                    <div class="form-group">
+                        <label>Nadpis článku</label>
+                        <input type="text" id="articleTitle" placeholder="Zadejte nadpis článku" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Datum</label>
+                            <input type="date" id="articleDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Kategorie</label>
+                            <select id="articleCategory">
+                                <option value="akce">Akce</option>
+                                <option value="sport">Sport</option>
+                                <option value="soutez">Soutěž</option>
+                                <option value="projekt">Projekt</option>
+                                <option value="ekologie">Ekologie</option>
+                                <option value="vzdelavani">Vzdělávání</option>
+                                <option value="zapisy">Zápisy</option>
+                                <option value="jidelna">Jídelna</option>
+                                <option value="druzina">Družina</option>
+                                <option value="ostatni">Ostatní</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ikona (Font Awesome třída)</label>
+                            <input type="text" id="articleIcon" placeholder="fas fa-newspaper" value="fas fa-newspaper">
+                            <small>Např. fas fa-newspaper, fas fa-rocket, fas fa-trophy</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Barva</label>
+                            <input type="color" id="articleColor" value="#667eea">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Krátký popis (zobrazí se na hlavní stránce)</label>
+                        <textarea id="articleSummary" rows="3" placeholder="Stručný popis článku..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Plný text článku</label>
+                        <!-- Simple WYSIWYG toolbar -->
+                        <div class="editor-toolbar">
+                            <button type="button" data-cmd="bold" title="Tučně"><i class="fas fa-bold"></i></button>
+                            <button type="button" data-cmd="italic" title="Kurzíva"><i class="fas fa-italic"></i></button>
+                            <button type="button" data-cmd="underline" title="Podtržení"><i class="fas fa-underline"></i></button>
+                            <span class="toolbar-sep"></span>
+                            <button type="button" data-cmd="insertUnorderedList" title="Odrážky"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" data-cmd="insertOrderedList" title="Číslování"><i class="fas fa-list-ol"></i></button>
+                            <span class="toolbar-sep"></span>
+                            <button type="button" data-cmd="formatBlock" data-val="h3" title="Nadpis"><i class="fas fa-heading"></i></button>
+                            <button type="button" data-cmd="formatBlock" data-val="p" title="Odstavec"><i class="fas fa-paragraph"></i></button>
+                            <span class="toolbar-sep"></span>
+                            <button type="button" data-cmd="createLink" title="Odkaz"><i class="fas fa-link"></i></button>
+                            <button type="button" data-cmd="removeFormat" title="Vymazat formát"><i class="fas fa-eraser"></i></button>
+                        </div>
+                        <div class="editor-content" id="articleContent" contenteditable="true"></div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Pages Section (Edit static content) -->
+            <div class="admin-section" id="section-pages">
+                <h3 class="section-title">Úprava obsahu stránek</h3>
+                <p class="section-desc">Upravte texty zobrazené na hlavní stránce webu. Změny se projeví okamžitě.</p>
+
+                <div class="pages-list">
+                    <div class="page-edit-card" data-page="about">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-school"></i> O škole</h4>
+                            <button class="btn btn-small edit-page-btn" data-page="about">Upravit</button>
+                        </div>
+                        <p>Hlavní text o škole zobrazený na úvodní stránce</p>
+                    </div>
+                    <div class="page-edit-card" data-page="druzina">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-children"></i> Školní družina</h4>
+                            <button class="btn btn-small edit-page-btn" data-page="druzina">Upravit</button>
+                        </div>
+                        <p>Informace o školní družině — provozní doba, poplatky, pravidla</p>
+                    </div>
+                    <div class="page-edit-card" data-page="jidelna">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-utensils"></i> Školní jídelna</h4>
+                            <button class="btn btn-small edit-page-btn" data-page="jidelna">Upravit</button>
+                        </div>
+                        <p>Informace o školní jídelně — kontakt, alergeny, přihlášky</p>
+                    </div>
+                    <div class="page-edit-card" data-page="enrollment">
+                        <div class="page-edit-header">
+                            <h4><i class="fas fa-pencil-alt"></i> Zápis do 1. tříd</h4>
+                            <button class="btn btn-small edit-page-btn" data-page="enrollment">Upravit</button>
+                        </div>
+                        <p>Banner s informacemi o zápisu do prvních tříd</p>
+                    </div>
+                </div>
+
+                <!-- Page editor modal -->
+                <div class="modal-overlay" id="pageEditorModal" style="display:none;">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3 id="pageEditorTitle">Upravit stránku</h3>
+                            <button class="modal-close" id="closePageEditor">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="editor-toolbar" id="pageEditorToolbar">
+                                <button type="button" data-cmd="bold" title="Tučně"><i class="fas fa-bold"></i></button>
+                                <button type="button" data-cmd="italic" title="Kurzíva"><i class="fas fa-italic"></i></button>
+                                <button type="button" data-cmd="underline" title="Podtržení"><i class="fas fa-underline"></i></button>
+                                <span class="toolbar-sep"></span>
+                                <button type="button" data-cmd="insertUnorderedList" title="Odrážky"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" data-cmd="insertOrderedList" title="Číslování"><i class="fas fa-list-ol"></i></button>
+                            </div>
+                            <div class="editor-content page-editor-content" id="pageEditorContent" contenteditable="true"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-ghost" id="cancelPageEdit">Zrušit</button>
+                            <button class="btn btn-primary" id="savePageEdit">
+                                <i class="fas fa-save"></i> Uložit změny
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="admin-section" id="section-gallery">
+                <h3 class="section-title">Správa galerie</h3>
+                <p class="section-desc">Přidávejte a upravujte fotogalerie zobrazené na webu.</p>
+                <div class="gallery-admin-grid" id="galleryAdminGrid"></div>
+                <button class="btn btn-primary" id="addGalleryItem" style="margin-top:16px;">
+                    <i class="fas fa-plus"></i> Přidat položku galerie
+                </button>
+            </div>
+
+            <!-- Contacts Section -->
+            <div class="admin-section" id="section-contacts">
+                <h3 class="section-title">Správa kontaktů</h3>
+                <p class="section-desc">Upravte kontaktní informace školy.</p>
+
+                <div class="card" style="margin-bottom: 24px;">
+                    <div class="card-header"><h3>Hlavní kontakty</h3></div>
+                    <form id="contactsForm" class="contacts-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Telefon školy</label>
+                                <input type="text" id="contactPhone" value="+420 354 624 654">
+                            </div>
+                            <div class="form-group">
+                                <label>Mobil</label>
+                                <input type="text" id="contactMobile" value="+420 773 589 635">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>E-mail sekretariátu</label>
+                                <input type="email" id="contactEmail" value="sekretariat@zsusovice.cz">
+                            </div>
+                            <div class="form-group">
+                                <label>Datová schránka</label>
+                                <input type="text" id="contactDataBox" value="wkkmpmx">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Telefon jídelna</label>
+                                <input type="text" id="contactCafeteria" value="+420 354 623 557">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefon družina</label>
+                                <input type="text" id="contactClub" value="+420 354 625 634">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Adresa</label>
+                            <input type="text" id="contactAddress" value="Školní náměstí 472/3, 353 01 Mariánské Lázně">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Uložit kontakty
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="admin-section" id="section-settings">
+                <h3 class="section-title">Nastavení</h3>
+
+                <div class="card" style="margin-bottom:24px;">
+                    <div class="card-header"><h3>Změna hesla</h3></div>
+                    <form id="passwordForm">
+                        <div class="form-group">
+                            <label>Současné heslo</label>
+                            <input type="password" id="currentPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nové heslo</label>
+                            <input type="password" id="newPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Potvrdit nové heslo</label>
+                            <input type="password" id="confirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-key"></i> Změnit heslo
+                        </button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header"><h3>Záloha a obnova dat</h3></div>
+                    <div class="settings-actions">
+                        <button class="btn btn-outline-sm" id="exportData">
+                            <i class="fas fa-download"></i> Exportovat data (JSON)
+                        </button>
+                        <label class="btn btn-outline-sm" style="cursor:pointer;">
+                            <i class="fas fa-upload"></i> Importovat data
+                            <input type="file" id="importData" accept=".json" style="display:none;">
+                        </label>
+                        <button class="btn btn-danger" id="resetData">
+                            <i class="fas fa-trash"></i> Obnovit výchozí data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
