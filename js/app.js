@@ -424,7 +424,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!track || !dotsContainer) return;
 
         const articles = getArticles();
-        const sorted = articles.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 8);
+        // Prioritize articles with images, then sort by date
+        const withImages = articles.filter(a => a.image).sort((a, b) => new Date(b.date) - new Date(a.date));
+        const withoutImages = articles.filter(a => !a.image).sort((a, b) => new Date(b.date) - new Date(a.date));
+        const sorted = [...withImages, ...withoutImages].slice(0, 10);
         if (sorted.length === 0) return;
 
         // Build slides
@@ -435,12 +438,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 : `background:${gradBg};`;
             const dateStr = new Date(article.date).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'long', year: 'numeric' });
             const iconHtml = article.image ? '' : `<div class="carousel-slide-image"><i class="${article.icon || 'fas fa-newspaper'}"></i></div>`;
+            const categoryLabels = { akce: 'Akce', sport: 'Sport', druzina: 'Družina', jidelna: 'Jídelna', zapisy: 'Zápisy', ekologie: 'Ekologie', vzdelavani: 'Vzdělávání', soutez: 'Soutěž', projekt: 'Projekt' };
+            const catLabel = categoryLabels[article.category] || article.category || '';
             return `
                 <div class="carousel-slide${i === 0 ? ' active' : ''}" style="${bgStyle}" data-index="${i}">
                     ${iconHtml}
                     <div class="carousel-slide-body">
+                        ${catLabel ? `<div class="carousel-slide-category">${catLabel}</div>` : ''}
                         <div class="carousel-slide-date">${dateStr}</div>
                         <div class="carousel-slide-title">${escapeHtml(article.title)}</div>
+                        <div class="carousel-slide-summary">${escapeHtml(article.summary || '')}</div>
+                        <span class="carousel-slide-cta">Číst více →</span>
                     </div>
                 </div>`;
         }).join('');
