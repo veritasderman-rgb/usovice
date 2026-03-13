@@ -52,13 +52,15 @@ const DEFAULT_ARTICLES = [
     },
     {
         id: 5,
-        title: "Soutěž ve fyzické zdatnosti",
-        date: "2026-02-15",
+        title: "Silový trojboj",
+        date: "2026-03-03",
         category: "sport",
         icon: "fas fa-dumbbell",
         color: "#fa709a",
-        summary: "Chlapci a dívky soutěžili v sedech-lehech, dřepech a výstupech. Nejlepší: Dominik S. a Matyáš K. (chlapci), Míša H. a Stela M. (dívky).",
-        content: "V rámci sportovního dne proběhla soutěž ve fyzické zdatnosti. Žáci zápolili v disciplínách sedy-lehy, dřepy a výstupy. Mezi chlapci zvítězili Dominik S. a Matyáš K., mezi dívkami Míša H. a Stela M."
+        summary: "Chlapci i dívky ze všech oddělení Lvíčat zápolili v sedech-lehech, dřepech a výstupech. Nejlepší: Dominik S., Matyáš K., Míša H. a Stela M.",
+        content: "V úterý 3.3. se konal v oddělení Lvíčat silový trojboj. Zúčastnilo se 15 chlapců ze všech oddělení. Nejúspěšnější byl z 1. třídy Dominik S. a Matyáš K. ze druhé třídy. Všichni se moc snažili a sedy-lehy, dřepy a výstupy na židličky zvládli na jedničku.\n\nV pátek 6.3. silový trojboj zkusila i děvčata. Byla stejně šikovná jako kluci. Největší problém dělaly výstupy na židličku, ale dřepy i sedy-lehy zvládly parádně. Nejlepší prvňačka byla Míša H. a druhačka Stela M. Zúčastnilo se 12 dívek a všechny dostaly malou odměnu.",
+        author: "I. Průchová, Lvíčata",
+        hasGallery: true
     },
     {
         id: 6,
