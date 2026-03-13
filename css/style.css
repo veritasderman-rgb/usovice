@@ -531,7 +531,8 @@ ul { list-style: none; }
     border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px;
     transition: all 0.2s; cursor: pointer;
 }
-.download-item:hover { border-color: #e67e22; background: #fef9f0; }
+.download-item:hover { border-color: #e67e22; background: #fef9f0; transform: translateX(4px); }
+a.download-link { text-decoration: none; color: inherit; }
 .download-icon {
     width: 44px; min-width: 44px; height: 44px; background: #fef5e7; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
